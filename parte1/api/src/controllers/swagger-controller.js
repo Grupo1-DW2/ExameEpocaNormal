@@ -7,7 +7,7 @@ const swaggerDefinition = {
   info: {
     title: "OAuth2 Movies API",
     version: "1.0.0",
-    description: "Example OAuth2.0 protected API",
+    description: "API de Filmes desenvolvida pelo Grupo01 de Desenvolvimento Web II",
     contact: { name: "inf-21-dw2-g01" },
   },
   servers: [{ url: "http://localhost:" + config.port }],
