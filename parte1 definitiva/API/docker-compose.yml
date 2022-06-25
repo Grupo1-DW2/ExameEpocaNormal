@@ -2,8 +2,8 @@ version: '3.7'
 
 services:
   mysql:
-    container_name: movie-mysql
-    image: movie-mysql
+    container_name: movies-mysql
+    image: movies-mysql1
     build:
       context: .
       dockerfile: ./dockerfile.mysql
@@ -13,14 +13,14 @@ services:
       MYSQL_ROOT_PASSWORD: 12345678
       # schema?
     networks:
-      - movie-network
+      - movies-network
     ports:
       - 3306:3306
   app:
     depends_on:
       - mysql
-    container_name: movie-app
-    image: movie-app
+    container_name: movies-app
+    image: movies-app1
     build:
       context: .
       dockerfile: ./dockerfile
@@ -29,7 +29,7 @@ services:
     ports:
       - 3000:3000
     networks:
-      - movie-network
+      - movies-network
 
 networks:
-  movie-network:
+  movies-network:

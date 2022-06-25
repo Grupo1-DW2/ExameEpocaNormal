@@ -2,28 +2,28 @@ version: '3.7'
 
 services:
   mysql:
-    container_name: dealership-mysql
-    image: inf21dw2g02/rep1:movies-mysql
+    container_name: movies-mysql
+    image: inf21dw2g01/parte1:mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 12345678
       # schema?
     networks:
-      - dealership-network
+      - movies-network
     ports:
       - 3306:3306
   app:
     depends_on:
       - mysql
-    container_name: dealership-app
-    image: inf21dw2g01/rep1:movies-app
+    container_name: movies-app
+    image: inf21dw2g01/parte1:app
     environment:
       NODE_ENV: production
     ports:
       - 3000:3000
     networks:
-      - dealership-network
+      - movies-network
 
 networks:
-  dealership-network:
+  movies-network:
