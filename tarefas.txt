@@ -1,0 +1,9 @@
+
+tratar da pasta src (ainda não tem nada)
+tratar do ficheiro index.js (ainda não tem nada)
+
+
+tratar do ficheiro .gitignore
+
+
+
