@@ -6,13 +6,13 @@ CREATE TABLE `actor`(
     `id` int NOT NULL AUTO_INCREMENT,
     `name` nvarchar(50) NOT NULL,
     PRIMARY KEY (`id`)
-)ENGINE=InnoDB; 
+) ENGINE=InnoDB; 
 
 CREATE TABLE `director`(
     `id` int NOT NULL AUTO_INCREMENT,
     `name` nvarchar(50) NOT NULL,
     PRIMARY KEY (`id`)
-)ENGINE=InnoDB; 
+) ENGINE=InnoDB; 
 
 CREATE TABLE `movies`(
     `id` int NOT NULL AUTO_INCREMENT,
@@ -27,14 +27,14 @@ CREATE TABLE `movies`(
     KEY `actor_id_fk_idx` (`actor_id`),
     KEY `director_id_fk_idx` (`director_id`),
 	PRIMARY KEY (`id`)
-)ENGINE=InnoDB;
+) ENGINE=InnoDB;
 
 
 CREATE TABLE `genre`(
     `id` int NOT NULL AUTO_INCREMENT,
     `genre` nvarchar(50) NOT NULL,
     PRIMARY KEY (`id`)
-)ENGINE=InnoDB; 
+) ENGINE=InnoDB; 
 
 
 CREATE TABLE `movie_genre`(
@@ -45,7 +45,7 @@ CREATE TABLE `movie_genre`(
     CONSTRAINT FOREIGN KEY (`genre_id`) REFERENCES `genre` (`id`) ON DELETE cascade ON UPDATE CASCADE
     -- KEY `movies_id_fk_idx` (`movie_id`),
     -- KEY `genre_id_fk_idx` (`genre_id`)
-)ENGINE=InnoDB;
+) ENGINE=InnoDB;
 
 
 DELIMITER $$

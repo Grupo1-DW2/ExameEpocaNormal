@@ -1,6 +1,6 @@
 {
-  "name": "API - OAuth2",
-  "version": "1.0.0",
+  "name": "API - Movies OAuth2",
+  "version": "1.0.1",
   "description": "oauth2",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,7 @@
   "keywords": [
     "oauth2",
     "authorization",
-    "authetication",
-    "UMAIA"
+    "authetication"
   ],
   "author": "Grupo 1",
   "license": "ISC",
