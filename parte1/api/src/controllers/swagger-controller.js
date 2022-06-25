@@ -1067,59 +1067,6 @@ const swaggerDefinition = {
         "x-swagger-router-controller": "MoviesController",
       },
     },
-    "/Movies/{id}/Genre": {
-      get: {
-        tags: ["MoviesByGenreController"],
-        summary: "Retrieve Movies based on Genre ID",
-        operationId: "retrieveMoviesonGenre",
-        parameters: [
-          {
-            name: "id",
-            in: "path",
-            required: true,
-            style: "simple",
-            explode: false,
-            schema: {
-              minimum: 1,
-              type: "integer",
-              format: "int64",
-            },
-            examples: {
-              one: {
-                summary: "Retrieve Movies id 1",
-                value: 1,
-              },
-              two: {
-                summary: "Retrieve Movies id 2",
-                value: 2,
-              },
-            },
-          },
-        ],
-        responses: {
-          200: {
-            description: "Array of Movies model instances by genre",
-            content: {
-              "application/json": {
-                schema: {
-                  type: "array",
-                  items: {
-                    $ref: "#/components/schemas/Movies",
-                  },
-                  "x-content-type": "application/json",
-                },
-              },
-              "application/xml": {
-                schema: {
-                  $ref: "#/components/schemas/inline_response_200",
-                },
-              },
-            },
-          },
-        },
-        "x-swagger-router-controller": "MoviesByGenreController",
-      },
-    },
     "/Genre/{id}/Movies": {
       get: {
         tags: ["GenreByMoviesController"],
@@ -1171,6 +1118,59 @@ const swaggerDefinition = {
           },
         },
         "x-swagger-router-controller": "GenreByMoviesController",
+      },
+    },
+    "/Movies/{id}/Genre": {
+      get: {
+        tags: ["MoviesByGenreController"],
+        summary: "Retrieve Movies based on Genre ID",
+        operationId: "retrieveMoviesOnGenre",
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            style: "simple",
+            explode: false,
+            schema: {
+              minimum: 1,
+              type: "integer",
+              format: "int64",
+            },
+            examples: {
+              one: {
+                summary: "Retrieve Movie id 1",
+                value: 1,
+              },
+              two: {
+                summary: "Retrieve Movie id 2",
+                value: 2,
+              },
+            },
+          },
+        ],
+        responses: {
+          200: {
+            description: "Array of Genre model instances by movie",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "array",
+                  items: {
+                    $ref: "#/components/schemas/Genre",
+                  },
+                  "x-content-type": "application/json",
+                },
+              },
+              "application/xml": {
+                schema: {
+                  $ref: "#/components/schemas/inline_response_200",
+                },
+              },
+            },
+          },
+        },
+        "x-swagger-router-controller": "MoviesByGenreController",
       },
     },
   },
@@ -1346,18 +1346,18 @@ const swaggerDefinition = {
       GenreExample01: {
         value: {
           id: 1,
-          name: "Genre 01",
+          genre: "Genre 01",
         },
       },
       GenreExample02: {
         value: {
           id: 2,
-          name: "Genre 02",
+          genre: "Genre 02",
         },
       },
       GenreInsert: {
         value: {
-          name: "Genre",
+          genre: "Genre",
         },
       },
       MovieExample01: {
@@ -1366,10 +1366,10 @@ const swaggerDefinition = {
           name: "Movie 01",
           language: "",
           original_title: "",
-          release_date: 2021-01-01,
-          runtime:"",
-          actor_id: 0,
-          director_id: 0
+          release_date: "2021-01-01",
+          runtime: 0,
+          actor_id: 1,
+          director_id: 1
         },
       },
       MovieExample02: {
@@ -1378,10 +1378,10 @@ const swaggerDefinition = {
           name: "Movie 01",
           language: "",
           original_title: "",
-          release_date: 2021-01-01,
-          runtime:"",
-          actor_id: 0,
-          director_id: 0
+          release_date: "2021-01-01",
+          runtime: 0,
+          actor_id: 2,
+          director_id: 2
         },
       },
       MovieInsert: {
@@ -1389,8 +1389,8 @@ const swaggerDefinition = {
           name: "Movie 01",
           language: "",
           original_title: "",
-          release_date: 2021-01-01,
-          runtime:"",
+          release_date: "2021-01-01",
+          runtime: 0,
           actor_id: 0,
           director_id: 0
         },

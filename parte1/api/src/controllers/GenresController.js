@@ -54,6 +54,7 @@ const updateGenre = (req, res) => {
     "UPDATE genre SET genre = ? WHERE id = ?",
     [
       req.body.genre,
+      req.params.id
     ],
     function (err, result) {
       if (err) throw err;

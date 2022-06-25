@@ -54,11 +54,11 @@ router.delete('/Actor/:id', auth, ActorsController.deleteActor);
 
 // ---------- MoviesByGenreController ----------
 
-router.get('/Genre/:id/Movies', MoviesByGenreController.retrieveMoviesOnGenre);
+router.get('/Movies/:id/Genre', MoviesByGenreController.retrieveMoviesOnGenre);
 
 // ---------- GenreByMoviesController ----------
 
-router.get('/Movie/:id/Genres', GenreByMoviesController.retrieveGenreOnMovies);
+router.get('/Genre/:id/Movies', GenreByMoviesController.retrieveGenreOnMovies);
 
 // ---------- AuthController ----------
 
