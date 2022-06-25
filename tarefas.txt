@@ -1,5 +1,2 @@
 
-(facultativo) ficheiro index.js concluído (talvez seja preciso alterar algumas coisas)
-
 falta fazer o postman
-
