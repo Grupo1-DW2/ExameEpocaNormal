@@ -57,13 +57,9 @@ router.delete('/Actor/:id', auth, ActorsController.deleteActor);
 
 router.get('/Genres/:id/Movie', MoviesByGenreController.retrieveMoviesOnGenre);
 
-// ---------- MoviesByActorController ----------
+// ---------- GenreByMoviesController ----------
 
-router.get('/Actors/:id/Movie', MoviesByActorController.retrieveMoviesOnActor);
-
-// ---------- MoviesByDirectorController ----------
-
-router.get('/Directors/:id/Movie', MoviesByDirectorController.retrieveMoviesOnDirector);
+router.get('/Actors/:id/Genre', GenreByMoviesController.retrieveGenreOnMovies);
 
 // ---------- AuthController ----------
 

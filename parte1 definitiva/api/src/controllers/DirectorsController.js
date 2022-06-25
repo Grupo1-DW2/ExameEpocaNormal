@@ -17,7 +17,7 @@ const retrieveDirectors = (req, res) => {
 const createDirector = (req, res) => {
   sql.query(
     "INSERT INTO director (name) values (?)",
-    [req.body.name, req.body.horsepower, req.body.brand],
+    [req.body.name],
     function (err, result) {
       if (err) throw err;
       res.send(req.body);

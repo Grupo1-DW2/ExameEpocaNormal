@@ -1067,11 +1067,11 @@ const swaggerDefinition = {
         "x-swagger-router-controller": "MoviesController",
       },
     },
-    "/Actors/{id}/Director": {
+    "/Movies/{id}/Genre": {
       get: {
-        tags: ["DirectorsByActorController"],
-        summary: "Retrieve Directors based on Actor ID",
-        operationId: "retrieveDirectorsOnActor",
+        tags: ["MoviesByGenreController"],
+        summary: "Retrieve Movies based on Genre ID",
+        operationId: "retrieveMoviesonGenre",
         parameters: [
           {
             name: "id",
@@ -1086,11 +1086,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Retrieve Actor id 1",
+                summary: "Retrieve Movies id 1",
                 value: 1,
               },
               two: {
-                summary: "Retrieve Actor id 2",
+                summary: "Retrieve Movies id 2",
                 value: 2,
               },
             },
@@ -1098,13 +1098,13 @@ const swaggerDefinition = {
         ],
         responses: {
           200: {
-            description: "Array of Director model instances",
+            description: "Array of Movies model instances",
             content: {
               "application/json": {
                 schema: {
                   type: "array",
                   items: {
-                    $ref: "#/components/schemas/Director",
+                    $ref: "#/components/schemas/Movies",
                   },
                   "x-content-type": "application/json",
                 },
@@ -1117,14 +1117,14 @@ const swaggerDefinition = {
             },
           },
         },
-        "x-swagger-router-controller": "DirectorsByActorController",
+        "x-swagger-router-controller": "MoviesByGenreController",
       },
     },
-    "/Movies/{id}/Director": {
+    "/Genre/{id}/Movies": {
       get: {
-        tags: ["DirectorsByMovieController"],
-        summary: "Retrieve Directors based on Movie ID",
-        operationId: "retrieveDirectorsOnMovie",
+        tags: ["GenreByMoviesController"],
+        summary: "Retrieve Genre based on Movies ID",
+        operationId: "retrieveGenreOnMovies",
         parameters: [
           {
             name: "id",
@@ -1151,13 +1151,13 @@ const swaggerDefinition = {
         ],
         responses: {
           200: {
-            description: "Array of Director model instances",
+            description: "Array of Genre model instances",
             content: {
               "application/json": {
                 schema: {
                   type: "array",
                   items: {
-                    $ref: "#/components/schemas/Director",
+                    $ref: "#/components/schemas/Genre",
                   },
                   "x-content-type": "application/json",
                 },
@@ -1170,7 +1170,7 @@ const swaggerDefinition = {
             },
           },
         },
-        "x-swagger-router-controller": "DirectorsByMovieController",
+        "x-swagger-router-controller": "GenreByMoviesController",
       },
     },
     "/Genres/{id}/Director": {
@@ -1232,11 +1232,7 @@ const swaggerDefinition = {
       Director: {
         title: "Director",
         required: [
-          "description",
           "name",
-          "ActorId",
-          "GenreId",
-          "MovieId",
         ],
         type: "object",
         properties: {
@@ -1247,39 +1243,16 @@ const swaggerDefinition = {
           name: {
             type: "string",
           },
-          description: {
-            type: "string",
-          },
-          color: {
-            type: "string",
-          },
-          ActorId: {
-            type: "integer",
-            format: "int64",
-          },
-          GenreId: {
-            type: "integer",
-            format: "int64",
-          },
-          MovieId: {
-            type: "integer",
-            format: "int64",
-          },
         },
         additionalProperties: true,
         example: {
           id: 0,
-          description: "description",
           name: "name",
-          color: "color",
-          ActorId: 0,
-          GenreId: 0,
-          MovieId: 0,
         },
       },
       Actor: {
         title: "Actor",
-        required: ["brand", "horsepower", "name"],
+        required: ["name"],
         type: "object",
         properties: {
           id: {
@@ -1289,25 +1262,16 @@ const swaggerDefinition = {
           name: {
             type: "string",
           },
-          horsepower: {
-            type: "integer",
-            format: "int64",
-          },
-          brand: {
-            type: "string",
-          },
         },
         additionalProperties: false,
         example: {
           id: 0,
           name: "name",
-          horsepower: 0,
-          brand: "brand",
         },
       },
       Genre: {
         title: "Genre",
-        required: ["description", "founded", "name"],
+        required: ["genre"],
         type: "object",
         properties: {
           id: {
@@ -1317,48 +1281,55 @@ const swaggerDefinition = {
           name: {
             type: "string",
           },
-          founded: {
-            type: "integer",
-            format: "int64",
-          },
-          description: {
-            type: "string",
-          },
         },
         additionalProperties: false,
         example: {
           id: 0,
           name: "name",
-          founded: 0,
-          description: "description",
         },
       },
       Movie: {
         title: "Movie",
-        required: ["age", "name", "sex"],
+        required: ["language", "original_title", "release_date", "runtime", "actor_id", "director_id"],
         type: "object",
         properties: {
           id: {
             type: "integer",
             format: "int64",
           },
-          name: {
+          language: {
             type: "string",
           },
-          age: {
+          original_title: {
+            type: "string",
+          },
+          release_date: {
+            type: "string",
+            format: "date",
+          },
+          runtime: {
             type: "integer",
             format: "int64",
           },
-          sex: {
-            type: "string",
+          actor_id: {
+            type: "integer",
+            format: "int64",
+          },
+          director_id: {
+            type: "integer",
+            format: "int64",
           },
         },
         additionalProperties: false,
         example: {
           id: 0,
           name: "name",
-          age: 0,
-          sex: "sex",
+          language: "language",
+          original_title: "original_title",
+          release_date: "2021-01-02",
+          runtime: 123,
+          actor_id: 0,
+          director_id: 0
         },
       },
       inline_response_200: {
@@ -1395,97 +1366,86 @@ const swaggerDefinition = {
         value: {
           id: 1,
           name: "Director 01",
-          description: "Director 01 description",
-          color: "Director 01 color",
         },
       },
       DirectorExample02: {
         value: {
           id: 2,
           name: "Director 02",
-          description: "Director 02 description",
-          color: "Director 02 color",
         },
       },
       DirectorInsert: {
         value: {
           name: "Director",
-          description: "Director description",
-          color: "Director color",
-          ActorId: 1,
-          GenreId: 1,
-          MovieId: 1,
         },
       },
       ActorExample01: {
         value: {
           id: 1,
           name: "Actor 01",
-          brand: "Brand 01",
-          horsepower: 0,
         },
       },
       ActorExample02: {
         value: {
           id: 2,
           name: "Actor 02",
-          brand: "Brand 02",
-          horsepower: 0,
         },
       },
       ActorInsert: {
         value: {
           name: "Actor",
-          brand: "Actor brand",
-          horsepower: 0,
         },
       },
       GenreExample01: {
         value: {
           id: 1,
           name: "Genre 01",
-          description: "Genre 01 description",
-          founded: 0,
         },
       },
       GenreExample02: {
         value: {
           id: 2,
           name: "Genre 02",
-          description: "Genre 02 description",
-          founded: 0,
         },
       },
       GenreInsert: {
         value: {
           name: "Genre",
-          description: "Genre description",
-          founded: 0,
         },
       },
       MovieExample01: {
         value: {
           id: 1,
           name: "Movie 01",
-          description: "Movie 01 description",
-          age: 0,
-          sex: "sex",
+          language: "",
+          original_title: "",
+          release_date: "Movie 01 description",
+          runtime:"",
+          actor_id: 0,
+          director_id: "sex"
         },
       },
       MovieExample02: {
         value: {
           id: 2,
-          name: "Movie 02",
-          description: "Movie 02 description",
-          age: 0,
-          sex: "sex",
+          name: "Movie 01",
+          language: "",
+          original_title: "",
+          release_date: "Movie 01 description",
+          runtime:"",
+          actor_id: 0,
+          director_id: "sex"
         },
       },
       MovieInsert: {
         value: {
-          name: "Movie",
-          age: 0,
-          sex: "Movie sex",
+          name: "Movie 01",
+          language: "",
+          original_title: "",
+          release_date: "Movie 01 description",
+          runtime:"",
+          actor_id: 0,
+          director_id: "sex"
         },
       },
     },
