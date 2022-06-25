@@ -3,67 +3,67 @@ const router  = express.Router();
 const auth = require('../middlewares/auth');
 const passport = require('../middlewares/passport');
 
-const CarsController = require('../controllers/CarsController');
-const EnginesController = require('../controllers/EnginesController');
-const ManufacturersController = require('../controllers/ManufacturersController');
-const OwnersController = require('../controllers/OwnersController');
-const CarsByEngineController = require('../controllers/CarsByEngineController');
-const CarsByOwnerController = require('../controllers/CarsByOwnerController');
-const CarsByManufacturerController = require('../controllers/CarsByManufacturerController');
+const MoviesController = require('../controllers/MoviesController');
+const GenresController = require('../controllers/GenresController');
+const DirectorsController = require('../controllers/DirectorsController');
+const ActorsController = require('../controllers/ActorsController');
+const MoviesByGenreController = require('../controllers/MoviesByGenreController');
+const MoviesByActorController = require('../controllers/MoviesByActorController');
+const MoviesByDirectorController = require('../controllers/MoviesByDirectorController');
 const AuthController = require('../controllers/AuthController');
 
 
-// ---------- CarsController ----------
+// ---------- MoviesController ----------
 
-router.get('/Cars/Count', CarsController.countCars);
-router.get('/Cars', CarsController.retrieveCars);
-router.post('/Cars', auth, CarsController.createCar);
+router.get('/Movies/Count', MoviesController.countMovies);
+router.get('/Movies', MoviesController.retrieveMovies);
+router.post('/Movies', auth, MoviesController.createMovie);
 
-router.get('/Car/:id', CarsController.retrieveCar);
-router.put('/Car/:id', auth, CarsController.updateCar);
-router.delete('/Car/:id', auth, CarsController.deleteCar);
+router.get('/Movie/:id', MoviesController.retrieveMovie);
+router.put('/Movie/:id', auth, MoviesController.updateMovie);
+router.delete('/Movie/:id', auth, MoviesController.deleteMovie);
 
-// ---------- EnginesController ----------
+// ---------- GenresController ----------
 
-router.get('/Engines/Count', EnginesController.countEngines);
-router.get('/Engines', EnginesController.retrieveEngines);
-router.post('/Engines', auth, EnginesController.createEngine);
+router.get('/Genres/Count', GenresController.countGenres);
+router.get('/Genres', GenresController.retrieveGenres);
+router.post('/Genres', auth, GenresController.createGenre);
 
-router.get('/Engine/:id', EnginesController.retrieveEngine);
-router.put('/Engine/:id', auth, EnginesController.updateEngine);
-router.delete('/Engine/:id', auth, EnginesController.deleteEngine);
+router.get('/Genre/:id', GenresController.retrieveGenre);
+router.put('/Genre/:id', auth, GenresController.updateGenre);
+router.delete('/Genre/:id', auth, GenresController.deleteGenre);
 
-// ---------- ManufacturersController ----------
+// ---------- DirectorsController ----------
 
-router.get('/Manufacturers/Count', ManufacturersController.countManufacturers);
-router.get('/Manufacturers', ManufacturersController.retrieveManufacturers);
-router.post('/Manufacturers', auth, ManufacturersController.createManufacturer);
+router.get('/Directors/Count', DirectorsController.countDirectors);
+router.get('/Directors', DirectorsController.retrieveDirectors);
+router.post('/Directors', auth, DirectorsController.createDirector);
 
-router.get('/Manufacturer/:id', ManufacturersController.retrieveManufacturer);
-router.put('/Manufacturer/:id', auth, ManufacturersController.updateManufacturer);
-router.delete('/Manufacturer/:id', auth, ManufacturersController.deleteManufacturer);
+router.get('/Director/:id', DirectorsController.retrieveDirector);
+router.put('/Director/:id', auth, DirectorsController.updateDirector);
+router.delete('/Director/:id', auth, DirectorsController.deleteDirector);
 
-// ---------- OwnersController ----------
+// ---------- ActorsController ----------
 
-router.get('/Owners/Count', OwnersController.countOwners);
-router.get('/Owners', OwnersController.retrieveOwners);
-router.post('/Owners', auth, OwnersController.createOwner);
+router.get('/Actors/Count', ActorsController.countActors);
+router.get('/Actors', ActorsController.retrieveActors);
+router.post('/Actors', auth, ActorsController.createActor);
 
-router.get('/Owner/:id', OwnersController.retrieveOwner);
-router.put('/Owner/:id', auth, OwnersController.updateOwner);
-router.delete('/Owner/:id', auth, OwnersController.deleteOwner);
+router.get('/Actor/:id', ActorsController.retrieveActor);
+router.put('/Actor/:id', auth, ActorsController.updateActor);
+router.delete('/Actor/:id', auth, ActorsController.deleteActor);
 
-// ---------- CarsByEngineController ----------
+// ---------- MoviesByGenreController ----------
 
-router.get('/Engines/:id/Car', CarsByEngineController.retrieveCarsOnEngine);
+router.get('/Genres/:id/Movie', MoviesByGenreController.retrieveMoviesOnGenre);
 
-// ---------- CarsByOwnerController ----------
+// ---------- MoviesByActorController ----------
 
-router.get('/Owners/:id/Car', CarsByOwnerController.retrieveCarsOnOwner);
+router.get('/Actors/:id/Movie', MoviesByActorController.retrieveMoviesOnActor);
 
-// ---------- CarsByManufacturerController ----------
+// ---------- MoviesByDirectorController ----------
 
-router.get('/Manufacturers/:id/Car', CarsByManufacturerController.retrieveCarsOnManufacturer);
+router.get('/Directors/:id/Movie', MoviesByDirectorController.retrieveMoviesOnDirector);
 
 // ---------- AuthController ----------
 
