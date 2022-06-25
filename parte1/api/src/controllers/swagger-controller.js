@@ -1363,7 +1363,6 @@ const swaggerDefinition = {
       MovieExample01: {
         value: {
           id: 1,
-          name: "Movie 01",
           language: "",
           original_title: "",
           release_date: "2021-01-01",
@@ -1375,7 +1374,6 @@ const swaggerDefinition = {
       MovieExample02: {
         value: {
           id: 2,
-          name: "Movie 01",
           language: "",
           original_title: "",
           release_date: "2021-01-01",
@@ -1386,13 +1384,12 @@ const swaggerDefinition = {
       },
       MovieInsert: {
         value: {
-          name: "Movie 01",
           language: "",
           original_title: "",
           release_date: "2021-01-01",
           runtime: 0,
-          actor_id: 0,
-          director_id: 0
+          actor_id: 1,
+          director_id: 2
         },
       },
     },

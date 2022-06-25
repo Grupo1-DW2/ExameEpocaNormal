@@ -56,14 +56,15 @@ const deleteMovie = (req, res) => {
 
 const updateMovie = (req, res) => {
   sql.query(
-    "UPDATE movies SET language = ?,  original_title = ?, release_date = ?, runtime=?, actor_id=?, director_id=? WHERE id = ?",
+    "UPDATE movies SET language = ?, original_title = ? , release_date = ?, runtime = ?, actor_id = ?, director_id = ? WHERE id = ?",
     [
       req.body.language,
       req.body.original_title,
       req.body.release_date,
       req.body.runtime, 
       req.body.actor_id, 
-      rec.body.director_id,
+      req.body.director_id,
+      req.params.id
     ],
     function (err, result) {
       if (err) throw err;
