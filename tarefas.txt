@@ -1,2 +1,7 @@
 
-falta fazer o postman
+falta fazer o postman do M1
+
+M2:
+  - mudar o index.js
+  - adicionar pasta interface
+  - mudar o docker-compose.yaml
