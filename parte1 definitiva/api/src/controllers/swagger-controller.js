@@ -1419,10 +1419,10 @@ const swaggerDefinition = {
           name: "Movie 01",
           language: "",
           original_title: "",
-          release_date: "Movie 01 description",
+          release_date: 2021-01-01,
           runtime:"",
           actor_id: 0,
-          director_id: "sex"
+          director_id: 0
         },
       },
       MovieExample02: {
@@ -1431,10 +1431,10 @@ const swaggerDefinition = {
           name: "Movie 01",
           language: "",
           original_title: "",
-          release_date: "Movie 01 description",
+          release_date: 2021-01-01,
           runtime:"",
           actor_id: 0,
-          director_id: "sex"
+          director_id: 0
         },
       },
       MovieInsert: {
@@ -1442,10 +1442,10 @@ const swaggerDefinition = {
           name: "Movie 01",
           language: "",
           original_title: "",
-          release_date: "Movie 01 description",
+          release_date: 2021-01-01,
           runtime:"",
           actor_id: 0,
-          director_id: "sex"
+          director_id: 0
         },
       },
     },

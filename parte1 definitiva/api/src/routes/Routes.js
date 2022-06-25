@@ -8,8 +8,7 @@ const GenresController = require('../controllers/GenresController');
 const DirectorsController = require('../controllers/DirectorsController');
 const ActorsController = require('../controllers/ActorsController');
 const MoviesByGenreController = require('../controllers/MoviesByGenreController');
-const MoviesByActorController = require('../controllers/MoviesByActorController');
-const MoviesByDirectorController = require('../controllers/MoviesByDirectorController');
+const GenreByMoviesController = require('../controllers/GenreByMoviesController');
 const AuthController = require('../controllers/AuthController');
 
 
@@ -55,11 +54,11 @@ router.delete('/Actor/:id', auth, ActorsController.deleteActor);
 
 // ---------- MoviesByGenreController ----------
 
-router.get('/Genres/:id/Movie', MoviesByGenreController.retrieveMoviesOnGenre);
+router.get('/Genres/:id/Movies', MoviesByGenreController.retrieveMoviesOnGenre);
 
 // ---------- GenreByMoviesController ----------
 
-router.get('/Actors/:id/Genre', GenreByMoviesController.retrieveGenreOnMovies);
+router.get('/Movies/:id/Genres', GenreByMoviesController.retrieveGenreOnMovies);
 
 // ---------- AuthController ----------
 
