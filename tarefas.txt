@@ -1,5 +1,4 @@
 
-
 pasta src:
     - controllers
     - routes
@@ -8,5 +7,5 @@ no ficheiro middlewares/passport.js, falta fazer as cenas de autenticação do G
 
 ficheiro index.js concluído (talvez seja preciso alterar algumas coisas)
 
-
+falta fazer o postman
 
