@@ -5,10 +5,10 @@ const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerDefinition = {
   openapi: "3.0.0",
   info: {
-    title: "OAuth2.0_01",
+    title: "OAuth2 Movies API",
     version: "1.0.0",
     description: "Example OAuth2.0 protected API",
-    contact: { name: "inf-21-dw2-g02" },
+    contact: { name: "inf-21-dw2-g01" },
   },
   servers: [{ url: "http://localhost:" + config.port }],
   security: [
@@ -17,32 +17,32 @@ const swaggerDefinition = {
     },
   ],
   paths: {
-    "/Engines/Count": {
+    "/Actors/Count": {
       get: {
-        tags: ["EnginesController"],
-        summary: "Count engines",
-        operationId: "countEngines",
+        tags: ["ActorsController"],
+        summary: "Count Actors",
+        operationId: "countActors",
         responses: {
           200: {
-            description: "Number of engines model instances",
+            description: "Number of Actors model instances",
           },
         },
       },
     },
-    "/Engines": {
+    "/Actors": {
       get: {
-        tags: ["EnginesController"],
-        summary: "Retrieve engines",
-        operationId: "retrieveEngines",
+        tags: ["ActorsController"],
+        summary: "Retrieve Actors",
+        operationId: "retrieveActors",
         responses: {
           200: {
-            description: "Array of engines model instances",
+            description: "Array of Actors model instances",
             content: {
               "application/json": {
                 schema: {
                   type: "array",
                   items: {
-                    $ref: "#/components/schemas/Engine",
+                    $ref: "#/components/schemas/Actor",
                   },
                   "x-content-type": "application/json",
                 },
@@ -55,40 +55,40 @@ const swaggerDefinition = {
             },
           },
         },
-        "x-swagger-router-controller": "EnginesController",
+        "x-swagger-router-controller": "ActorsController",
       },
       post: {
-        tags: ["EnginesController"],
-        summary: "Create Engine",
-        operationId: "createEngine",
+        tags: ["ActorsController"],
+        summary: "Create Actor",
+        operationId: "createActor",
         requestBody: {
           content: {
             "application/json": {
               schema: {
-                $ref: "#/components/schemas/Engine",
+                $ref: "#/components/schemas/Actor",
               },
               examples: {
-                EngineInsert: {
-                  $ref: "#/components/examples/EngineInsert",
+                ActorInsert: {
+                  $ref: "#/components/examples/ActorInsert",
                 },
-                EngineExample01: {
-                  $ref: "#/components/examples/EngineExample01",
+                ActorExample01: {
+                  $ref: "#/components/examples/ActorExample01",
                 },
-                EngineExample02: {
-                  $ref: "#/components/examples/EngineExample02",
+                ActorExample02: {
+                  $ref: "#/components/examples/ActorExample02",
                 },
               },
             },
             "application/xml": {
               schema: {
-                $ref: "#/components/schemas/Engine",
+                $ref: "#/components/schemas/Actor",
               },
               examples: {
-                EngineExample01: {
-                  $ref: "#/components/examples/EngineExample01",
+                ActorExample01: {
+                  $ref: "#/components/examples/ActorExample01",
                 },
-                EngineExample02: {
-                  $ref: "#/components/examples/EngineExample02",
+                ActorExample02: {
+                  $ref: "#/components/examples/ActorExample02",
                 },
               },
             },
@@ -96,16 +96,16 @@ const swaggerDefinition = {
         },
         responses: {
           200: {
-            description: "Create a Engine model instance",
+            description: "Create a Actor model instance",
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/Engine",
+                  $ref: "#/components/schemas/Actor",
                 },
               },
               "application/xml": {
                 schema: {
-                  $ref: "#/components/schemas/Engine",
+                  $ref: "#/components/schemas/Actor",
                 },
               },
             },
@@ -114,14 +114,14 @@ const swaggerDefinition = {
             description: "Bad request",
           },
         },
-        "x-swagger-router-controller": "EnginesController",
+        "x-swagger-router-controller": "ActorsController",
       },
     },
-    "/Engine/{id}": {
+    "/Actor/{id}": {
       get: {
-        tags: ["EnginesController"],
-        summary: "Retrieve Engine",
-        operationId: "retrieveEngine",
+        tags: ["ActorsController"],
+        summary: "Retrieve Actor",
+        operationId: "retrieveActor",
         parameters: [
           {
             name: "id",
@@ -136,11 +136,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Retrieve Engine id 1",
+                summary: "Retrieve Actor id 1",
                 value: 1,
               },
               two: {
-                summary: "Retrieve Engine id 2",
+                summary: "Retrieve Actor id 2",
                 value: 2,
               },
             },
@@ -152,12 +152,12 @@ const swaggerDefinition = {
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/Engine",
+                  $ref: "#/components/schemas/Actor",
                 },
               },
               "application/xml": {
                 schema: {
-                  $ref: "#/components/schemas/Engine",
+                  $ref: "#/components/schemas/Actor",
                 },
               },
             },
@@ -169,12 +169,12 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "EnginesController",
+        "x-swagger-router-controller": "ActorsController",
       },
       put: {
-        tags: ["EnginesController"],
-        summary: "Update Engine",
-        operationId: "updateEngine",
+        tags: ["ActorsController"],
+        summary: "Update Actor",
+        operationId: "updateActor",
         parameters: [
           {
             name: "id",
@@ -189,11 +189,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Update Engine id 1",
+                summary: "Update Actor id 1",
                 value: 1,
               },
               two: {
-                summary: "Update Engine id 2",
+                summary: "Update Actor id 2",
                 value: 2,
               },
             },
@@ -203,17 +203,17 @@ const swaggerDefinition = {
           content: {
             "application/json": {
               schema: {
-                $ref: "#/components/schemas/Engine",
+                $ref: "#/components/schemas/Actor",
               },
               examples: {
-                EngineUpdate: {
-                  $ref: "#/components/examples/EngineInsert",
+                ActorUpdate: {
+                  $ref: "#/components/examples/ActorInsert",
                 },
-                EngineExample01: {
-                  $ref: "#/components/examples/EngineExample01",
+                ActorExample01: {
+                  $ref: "#/components/examples/ActorExample01",
                 },
-                EngineExample02: {
-                  $ref: "#/components/examples/EngineExample02",
+                ActorExample02: {
+                  $ref: "#/components/examples/ActorExample02",
                 },
               },
             },
@@ -226,7 +226,7 @@ const swaggerDefinition = {
             content: {
               "application/json": {
                 schema: {
-                  description: "Engine PUT success",
+                  description: "Actor PUT success",
                   "x-content-type": "application/json",
                 },
               },
@@ -239,12 +239,12 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "EnginesController",
+        "x-swagger-router-controller": "ActorsController",
       },
       delete: {
-        tags: ["EnginesController"],
-        summary: "Delete Engine",
-        operationId: "deleteEngine",
+        tags: ["ActorsController"],
+        summary: "Delete Actor",
+        operationId: "deleteActor",
         parameters: [
           {
             name: "id",
@@ -259,11 +259,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Delete Engine id 1",
+                summary: "Delete Actor id 1",
                 value: 1,
               },
               two: {
-                summary: "Delete Engine id 2",
+                summary: "Delete Actor id 2",
                 value: 2,
               },
             },
@@ -277,35 +277,35 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "EnginesController",
+        "x-swagger-router-controller": "ActorsController",
       },
     },
-    "/Cars/Count": {
+    "/Directors/Count": {
       get: {
-        tags: ["CarsController"],
-        summary: "Count cars",
-        operationId: "countCars",
+        tags: ["DirectorsController"],
+        summary: "Count Directors",
+        operationId: "countDirectors",
         responses: {
           200: {
-            description: "Number of cars model instances",
+            description: "Number of Directors model instances",
           },
         },
       },
     },
-    "/Cars": {
+    "/Directors": {
       get: {
-        tags: ["CarsController"],
-        summary: "Retrieve Cars",
-        operationId: "retrieveCars",
+        tags: ["DirectorsController"],
+        summary: "Retrieve Directors",
+        operationId: "retrieveDirectors",
         responses: {
           200: {
-            description: "Array of Car model instances",
+            description: "Array of Director model instances",
             content: {
               "application/json": {
                 schema: {
                   type: "array",
                   items: {
-                    $ref: "#/components/schemas/Car",
+                    $ref: "#/components/schemas/Director",
                   },
                   "x-content-type": "application/json",
                 },
@@ -318,49 +318,49 @@ const swaggerDefinition = {
             },
           },
         },
-        "x-swagger-router-controller": "CarsController",
+        "x-swagger-router-controller": "DirectorsController",
       },
       post: {
-        tags: ["CarsController"],
-        summary: "Create Car",
-        operationId: "createCar",
+        tags: ["DirectorsController"],
+        summary: "Create Director",
+        operationId: "createDirector",
         requestBody: {
           content: {
             "application/json": {
               schema: {
-                $ref: "#/components/schemas/Car",
+                $ref: "#/components/schemas/Director",
               },
               examples: {
-                CarInsert: {
-                  $ref: "#/components/examples/CarInsert",
+                DirectorInsert: {
+                  $ref: "#/components/examples/DirectorInsert",
                 },
-                CarExample01: {
-                  $ref: "#/components/examples/CarExample01",
+                DirectorExample01: {
+                  $ref: "#/components/examples/DirectorExample01",
                 },
-                CarExample02: {
-                  $ref: "#/components/examples/CarExample02",
+                DirectorExample02: {
+                  $ref: "#/components/examples/DirectorExample02",
                 },
               },
             },
             "application/xml": {
               schema: {
-                $ref: "#/components/schemas/Car",
+                $ref: "#/components/schemas/Director",
               },
             },
           },
         },
         responses: {
           200: {
-            description: "Create a Car model instance",
+            description: "Create a Director model instance",
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/Car",
+                  $ref: "#/components/schemas/Director",
                 },
               },
               "application/xml": {
                 schema: {
-                  $ref: "#/components/schemas/Car",
+                  $ref: "#/components/schemas/Director",
                 },
               },
             },
@@ -369,14 +369,14 @@ const swaggerDefinition = {
             description: "Bad request",
           },
         },
-        "x-swagger-router-controller": "CarsController",
+        "x-swagger-router-controller": "DirectorsController",
       },
     },
-    "/Car/{id}": {
+    "/Director/{id}": {
       get: {
-        tags: ["CarsController"],
-        summary: "Retrieve Car",
-        operationId: "retrieveCar",
+        tags: ["DirectorsController"],
+        summary: "Retrieve Director",
+        operationId: "retrieveDirector",
         parameters: [
           {
             name: "id",
@@ -391,11 +391,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Retrieve Car id 1",
+                summary: "Retrieve Director id 1",
                 value: 1,
               },
               two: {
-                summary: "Retrieve Car id 2",
+                summary: "Retrieve Director id 2",
                 value: 2,
               },
             },
@@ -407,12 +407,12 @@ const swaggerDefinition = {
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/Car",
+                  $ref: "#/components/schemas/Director",
                 },
               },
               "application/xml": {
                 schema: {
-                  $ref: "#/components/schemas/Car",
+                  $ref: "#/components/schemas/Director",
                 },
               },
             },
@@ -424,12 +424,12 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "CarsController",
+        "x-swagger-router-controller": "DirectorsController",
       },
       put: {
-        tags: ["CarsController"],
-        summary: "Update Car",
-        operationId: "updateCar",
+        tags: ["DirectorsController"],
+        summary: "Update Director",
+        operationId: "updateDirector",
         parameters: [
           {
             name: "id",
@@ -444,11 +444,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Update Car id 1",
+                summary: "Update Director id 1",
                 value: 1,
               },
               two: {
-                summary: "Update Car id 2",
+                summary: "Update Director id 2",
                 value: 2,
               },
             },
@@ -458,17 +458,17 @@ const swaggerDefinition = {
           content: {
             "application/json": {
               schema: {
-                $ref: "#/components/schemas/Car",
+                $ref: "#/components/schemas/Director",
               },
               examples: {
-                CarUpdate: {
-                  $ref: "#/components/examples/CarInsert",
+                DirectorUpdate: {
+                  $ref: "#/components/examples/DirectorInsert",
                 },
-                CarExample01: {
-                  $ref: "#/components/examples/CarExample01",
+                DirectorExample01: {
+                  $ref: "#/components/examples/DirectorExample01",
                 },
-                CarExample02: {
-                  $ref: "#/components/examples/CarExample02",
+                DirectorExample02: {
+                  $ref: "#/components/examples/DirectorExample02",
                 },
               },
             },
@@ -481,7 +481,7 @@ const swaggerDefinition = {
             content: {
               "application/json": {
                 schema: {
-                  description: "Car PUT success",
+                  description: "Director PUT success",
                   "x-content-type": "application/json",
                 },
               },
@@ -494,12 +494,12 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "CarsController",
+        "x-swagger-router-controller": "DirectorsController",
       },
       delete: {
-        tags: ["CarsController"],
-        summary: "Delete Car",
-        operationId: "deleteCar",
+        tags: ["DirectorsController"],
+        summary: "Delete Director",
+        operationId: "deleteDirector",
         parameters: [
           {
             name: "id",
@@ -514,11 +514,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Delete Car id 1",
+                summary: "Delete Director id 1",
                 value: 1,
               },
               two: {
-                summary: "Delete Car id 2",
+                summary: "Delete Director id 2",
                 value: 2,
               },
             },
@@ -532,35 +532,35 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "CarsController",
+        "x-swagger-router-controller": "DirectorsController",
       },
     },
-    "/Manufacturers/Count": {
+    "/Genres/Count": {
       get: {
-        tags: ["ManufacturersController"],
-        summary: "Count manufacturers",
-        operationId: "countManufacturers",
+        tags: ["GenresController"],
+        summary: "Count Genres",
+        operationId: "countGenres",
         responses: {
           200: {
-            description: "Number of manufacturers model instances",
+            description: "Number of Genres model instances",
           },
         },
       },
     },
-    "/Manufacturers": {
+    "/Genres": {
       get: {
-        tags: ["ManufacturersController"],
-        summary: "Retrieve Manufacturers",
-        operationId: "retrieveManufacturers",
+        tags: ["GenresController"],
+        summary: "Retrieve Genres",
+        operationId: "retrieveGenres",
         responses: {
           200: {
-            description: "Array of manufacturers model instances",
+            description: "Array of Genres model instances",
             content: {
               "application/json": {
                 schema: {
                   type: "array",
                   items: {
-                    $ref: "#/components/schemas/Manufacturer",
+                    $ref: "#/components/schemas/Genre",
                   },
                   "x-content-type": "application/json",
                 },
@@ -573,43 +573,43 @@ const swaggerDefinition = {
             },
           },
         },
-        "x-swagger-router-controller": "ManufacturersController",
+        "x-swagger-router-controller": "GenresController",
       },
       post: {
-        tags: ["ManufacturersController"],
-        summary: "Create Manufacturer",
-        operationId: "createManufacturer",
+        tags: ["GenresController"],
+        summary: "Create Genre",
+        operationId: "createGenre",
         requestBody: {
           content: {
             "application/json": {
               schema: {
-                $ref: "#/components/schemas/Manufacturer",
+                $ref: "#/components/schemas/Genre",
               },
               examples: {
-                ManufacturerInsert: {
-                  $ref: "#/components/examples/ManufacturerInsert",
+                GenreInsert: {
+                  $ref: "#/components/examples/GenreInsert",
                 },
-                ManufacturerExample01: {
-                  $ref: "#/components/examples/ManufacturerExample01",
+                GenreExample01: {
+                  $ref: "#/components/examples/GenreExample01",
                 },
-                ManufacturerExample02: {
-                  $ref: "#/components/examples/ManufacturerExample02",
+                GenreExample02: {
+                  $ref: "#/components/examples/GenreExample02",
                 },
               },
             },
             "application/xml": {
               schema: {
-                $ref: "#/components/schemas/Manufacturer",
+                $ref: "#/components/schemas/Genre",
               },
               examples: {
-                ManufacturerInsert: {
-                  $ref: "#/components/examples/ManufacturerInsert",
+                GenreInsert: {
+                  $ref: "#/components/examples/GenreInsert",
                 },
-                EngineExample01: {
-                  $ref: "#/components/examples/ManufacturerExample01",
+                ActorExample01: {
+                  $ref: "#/components/examples/GenreExample01",
                 },
-                EngineExample02: {
-                  $ref: "#/components/examples/ManufacturerExample02",
+                ActorExample02: {
+                  $ref: "#/components/examples/GenreExample02",
                 },
               },
             },
@@ -617,16 +617,16 @@ const swaggerDefinition = {
         },
         responses: {
           200: {
-            description: "Create a Manufacturer model instance",
+            description: "Create a Genre model instance",
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/Manufacturer",
+                  $ref: "#/components/schemas/Genre",
                 },
               },
               "application/xml": {
                 schema: {
-                  $ref: "#/components/schemas/Manufacturer",
+                  $ref: "#/components/schemas/Genre",
                 },
               },
             },
@@ -635,14 +635,14 @@ const swaggerDefinition = {
             description: "Bad request",
           },
         },
-        "x-swagger-router-controller": "ManufacturersController",
+        "x-swagger-router-controller": "GenresController",
       },
     },
-    "/Manufacturer/{id}": {
+    "/Genre/{id}": {
       get: {
-        tags: ["ManufacturersController"],
-        summary: "Retrieve Manufacturer",
-        operationId: "retrieveManufacturer",
+        tags: ["GenresController"],
+        summary: "Retrieve Genre",
+        operationId: "retrieveGenre",
         parameters: [
           {
             name: "id",
@@ -657,11 +657,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Retrieve Manufacturer id 1",
+                summary: "Retrieve Genre id 1",
                 value: 1,
               },
               two: {
-                summary: "Retrieve Manufacturer id 2",
+                summary: "Retrieve Genre id 2",
                 value: 2,
               },
             },
@@ -673,12 +673,12 @@ const swaggerDefinition = {
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/Manufacturer",
+                  $ref: "#/components/schemas/Genre",
                 },
               },
               "application/xml": {
                 schema: {
-                  $ref: "#/components/schemas/Manufacturer",
+                  $ref: "#/components/schemas/Genre",
                 },
               },
             },
@@ -690,12 +690,12 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "ManufacturersController",
+        "x-swagger-router-controller": "GenresController",
       },
       put: {
-        tags: ["ManufacturersController"],
-        summary: "Update Manufacturer",
-        operationId: "updateManufacturer",
+        tags: ["GenresController"],
+        summary: "Update Genre",
+        operationId: "updateGenre",
         parameters: [
           {
             name: "id",
@@ -710,11 +710,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Update Manufacturer id 1",
+                summary: "Update Genre id 1",
                 value: 1,
               },
               two: {
-                summary: "Update Manufacturer id 2",
+                summary: "Update Genre id 2",
                 value: 2,
               },
             },
@@ -724,17 +724,17 @@ const swaggerDefinition = {
           content: {
             "application/json": {
               schema: {
-                $ref: "#/components/schemas/Manufacturer",
+                $ref: "#/components/schemas/Genre",
               },
               examples: {
-                ManufacturerUpdate: {
-                  $ref: "#/components/examples/ManufacturerInsert",
+                GenreUpdate: {
+                  $ref: "#/components/examples/GenreInsert",
                 },
-                ManufacturerExample01: {
-                  $ref: "#/components/examples/ManufacturerExample01",
+                GenreExample01: {
+                  $ref: "#/components/examples/GenreExample01",
                 },
-                ManufacturerExample02: {
-                  $ref: "#/components/examples/ManufacturerExample02",
+                GenreExample02: {
+                  $ref: "#/components/examples/GenreExample02",
                 },
               },
             },
@@ -747,7 +747,7 @@ const swaggerDefinition = {
             content: {
               "application/json": {
                 schema: {
-                  description: "Manufacturer PUT success",
+                  description: "Genre PUT success",
                   "x-content-type": "application/json",
                 },
               },
@@ -760,12 +760,12 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "ManufacturersController",
+        "x-swagger-router-controller": "GenresController",
       },
       delete: {
-        tags: ["ManufacturersController"],
-        summary: "Delete Manufacturer",
-        operationId: "deleteManufacturer",
+        tags: ["GenresController"],
+        summary: "Delete Genre",
+        operationId: "deleteGenre",
         parameters: [
           {
             name: "id",
@@ -780,11 +780,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Delete Manufacturer id 1",
+                summary: "Delete Genre id 1",
                 value: 1,
               },
               two: {
-                summary: "Delete Manufacturer id 2",
+                summary: "Delete Genre id 2",
                 value: 2,
               },
             },
@@ -798,35 +798,35 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "ManufacturersController",
+        "x-swagger-router-controller": "GenresController",
       },
     },
-    "/Owners/Count": {
+    "/Movies/Count": {
       get: {
-        tags: ["OwnersController"],
-        summary: "Count owners",
-        operationId: "countOwners",
+        tags: ["MoviesController"],
+        summary: "Count Movies",
+        operationId: "countMovies",
         responses: {
           200: {
-            description: "Number of owners model instances",
+            description: "Number of Movies model instances",
           },
         },
       },
     },
-    "/Owners": {
+    "/Movies": {
       get: {
-        tags: ["OwnersController"],
-        summary: "Retrieve Owners",
-        operationId: "retrieveOwners",
+        tags: ["MoviesController"],
+        summary: "Retrieve Movies",
+        operationId: "retrieveMovies",
         responses: {
           200: {
-            description: "Array of Owners model instances",
+            description: "Array of Movies model instances",
             content: {
               "application/json": {
                 schema: {
                   type: "array",
                   items: {
-                    $ref: "#/components/schemas/Owner",
+                    $ref: "#/components/schemas/Movie",
                   },
                   "x-content-type": "application/json",
                 },
@@ -839,43 +839,43 @@ const swaggerDefinition = {
             },
           },
         },
-        "x-swagger-router-controller": "OwnersController",
+        "x-swagger-router-controller": "MoviesController",
       },
       post: {
-        tags: ["OwnersController"],
-        summary: "Create Owner",
-        operationId: "createOwner",
+        tags: ["MoviesController"],
+        summary: "Create Movie",
+        operationId: "createMovie",
         requestBody: {
           content: {
             "application/json": {
               schema: {
-                $ref: "#/components/schemas/Owner",
+                $ref: "#/components/schemas/Movie",
               },
               examples: {
-                OwnerInsert: {
-                  $ref: "#/components/examples/OwnerInsert",
+                MovieInsert: {
+                  $ref: "#/components/examples/MovieInsert",
                 },
-                OwnerExample01: {
-                  $ref: "#/components/examples/OwnerExample01",
+                MovieExample01: {
+                  $ref: "#/components/examples/MovieExample01",
                 },
-                OwnerExample02: {
-                  $ref: "#/components/examples/OwnerExample02",
+                MovieExample02: {
+                  $ref: "#/components/examples/MovieExample02",
                 },
               },
             },
             "application/xml": {
               schema: {
-                $ref: "#/components/schemas/Owner",
+                $ref: "#/components/schemas/Movie",
               },
               examples: {
-                OwnerInsert: {
-                  $ref: "#/components/examples/OwnerInsert",
+                MovieInsert: {
+                  $ref: "#/components/examples/MovieInsert",
                 },
-                OwnerExample01: {
-                  $ref: "#/components/examples/OwnerExample01",
+                MovieExample01: {
+                  $ref: "#/components/examples/MovieExample01",
                 },
-                OwnerExample02: {
-                  $ref: "#/components/examples/OwnerExample02",
+                MovieExample02: {
+                  $ref: "#/components/examples/MovieExample02",
                 },
               },
             },
@@ -883,16 +883,16 @@ const swaggerDefinition = {
         },
         responses: {
           200: {
-            description: "Create a Owner model instance",
+            description: "Create a Movie model instance",
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/Owner",
+                  $ref: "#/components/schemas/Movie",
                 },
               },
               "application/xml": {
                 schema: {
-                  $ref: "#/components/schemas/Owner",
+                  $ref: "#/components/schemas/Movie",
                 },
               },
             },
@@ -901,14 +901,14 @@ const swaggerDefinition = {
             description: "Bad request",
           },
         },
-        "x-swagger-router-controller": "OwnersController",
+        "x-swagger-router-controller": "MoviesController",
       },
     },
-    "/Owner/{id}": {
+    "/Movie/{id}": {
       get: {
-        tags: ["OwnersController"],
-        summary: "Retrieve Owner",
-        operationId: "retrieveOwner",
+        tags: ["MoviesController"],
+        summary: "Retrieve Movie",
+        operationId: "retrieveMovie",
         parameters: [
           {
             name: "id",
@@ -923,11 +923,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Retrieve Owner id 1",
+                summary: "Retrieve Movie id 1",
                 value: 1,
               },
               two: {
-                summary: "Retrieve Owner id 2",
+                summary: "Retrieve Movie id 2",
                 value: 2,
               },
             },
@@ -939,12 +939,12 @@ const swaggerDefinition = {
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/Owner",
+                  $ref: "#/components/schemas/Movie",
                 },
               },
               "application/xml": {
                 schema: {
-                  $ref: "#/components/schemas/Owner",
+                  $ref: "#/components/schemas/Movie",
                 },
               },
             },
@@ -956,12 +956,12 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "OwnersController",
+        "x-swagger-router-controller": "MoviesController",
       },
       put: {
-        tags: ["OwnersController"],
-        summary: "Update Owner",
-        operationId: "updateOwner",
+        tags: ["MoviesController"],
+        summary: "Update Movie",
+        operationId: "updateMovie",
         parameters: [
           {
             name: "id",
@@ -976,11 +976,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Update Owner id 1",
+                summary: "Update Movie id 1",
                 value: 1,
               },
               two: {
-                summary: "Update Owner id 2",
+                summary: "Update Movie id 2",
                 value: 2,
               },
             },
@@ -990,17 +990,17 @@ const swaggerDefinition = {
           content: {
             "application/json": {
               schema: {
-                $ref: "#/components/schemas/Owner",
+                $ref: "#/components/schemas/Movie",
               },
               examples: {
-                OwnerUpdate: {
-                  $ref: "#/components/examples/OwnerInsert",
+                MovieUpdate: {
+                  $ref: "#/components/examples/MovieInsert",
                 },
-                OwnerExample01: {
-                  $ref: "#/components/examples/OwnerExample01",
+                MovieExample01: {
+                  $ref: "#/components/examples/MovieExample01",
                 },
-                OwnerExample02: {
-                  $ref: "#/components/examples/OwnerExample02",
+                MovieExample02: {
+                  $ref: "#/components/examples/MovieExample02",
                 },
               },
             },
@@ -1013,7 +1013,7 @@ const swaggerDefinition = {
             content: {
               "application/json": {
                 schema: {
-                  description: "Owner PUT success",
+                  description: "Movie PUT success",
                   "x-content-type": "application/json",
                 },
               },
@@ -1026,12 +1026,12 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "OwnersController",
+        "x-swagger-router-controller": "MoviesController",
       },
       delete: {
-        tags: ["OwnersController"],
-        summary: "Delete Owner",
-        operationId: "deleteOwner",
+        tags: ["MoviesController"],
+        summary: "Delete Movie",
+        operationId: "deleteMovie",
         parameters: [
           {
             name: "id",
@@ -1046,11 +1046,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Delete Owner id 1",
+                summary: "Delete Movie id 1",
                 value: 1,
               },
               two: {
-                summary: "Delete Owner id 2",
+                summary: "Delete Movie id 2",
                 value: 2,
               },
             },
@@ -1064,14 +1064,14 @@ const swaggerDefinition = {
             description: "id not found",
           },
         },
-        "x-swagger-router-controller": "OwnersController",
+        "x-swagger-router-controller": "MoviesController",
       },
     },
-    "/Engines/{id}/Car": {
+    "/Actors/{id}/Director": {
       get: {
-        tags: ["CarsByEngineController"],
-        summary: "Retrieve Cars based on Engine ID",
-        operationId: "retrieveCarsOnEngine",
+        tags: ["DirectorsByActorController"],
+        summary: "Retrieve Directors based on Actor ID",
+        operationId: "retrieveDirectorsOnActor",
         parameters: [
           {
             name: "id",
@@ -1086,11 +1086,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Retrieve Engine id 1",
+                summary: "Retrieve Actor id 1",
                 value: 1,
               },
               two: {
-                summary: "Retrieve Engine id 2",
+                summary: "Retrieve Actor id 2",
                 value: 2,
               },
             },
@@ -1098,13 +1098,13 @@ const swaggerDefinition = {
         ],
         responses: {
           200: {
-            description: "Array of Car model instances",
+            description: "Array of Director model instances",
             content: {
               "application/json": {
                 schema: {
                   type: "array",
                   items: {
-                    $ref: "#/components/schemas/Car",
+                    $ref: "#/components/schemas/Director",
                   },
                   "x-content-type": "application/json",
                 },
@@ -1117,14 +1117,14 @@ const swaggerDefinition = {
             },
           },
         },
-        "x-swagger-router-controller": "CarsByEngineController",
+        "x-swagger-router-controller": "DirectorsByActorController",
       },
     },
-    "/Owners/{id}/Car": {
+    "/Movies/{id}/Director": {
       get: {
-        tags: ["CarsByOwnerController"],
-        summary: "Retrieve Cars based on Owner ID",
-        operationId: "retrieveCarsOnOwner",
+        tags: ["DirectorsByMovieController"],
+        summary: "Retrieve Directors based on Movie ID",
+        operationId: "retrieveDirectorsOnMovie",
         parameters: [
           {
             name: "id",
@@ -1139,11 +1139,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Retrieve Owner id 1",
+                summary: "Retrieve Movie id 1",
                 value: 1,
               },
               two: {
-                summary: "Retrieve Owner id 2",
+                summary: "Retrieve Movie id 2",
                 value: 2,
               },
             },
@@ -1151,13 +1151,13 @@ const swaggerDefinition = {
         ],
         responses: {
           200: {
-            description: "Array of Car model instances",
+            description: "Array of Director model instances",
             content: {
               "application/json": {
                 schema: {
                   type: "array",
                   items: {
-                    $ref: "#/components/schemas/Car",
+                    $ref: "#/components/schemas/Director",
                   },
                   "x-content-type": "application/json",
                 },
@@ -1170,14 +1170,14 @@ const swaggerDefinition = {
             },
           },
         },
-        "x-swagger-router-controller": "CarsByOwnerController",
+        "x-swagger-router-controller": "DirectorsByMovieController",
       },
     },
-    "/Manufacturers/{id}/Car": {
+    "/Genres/{id}/Director": {
       get: {
-        tags: ["CarsByManufacturerController"],
-        summary: "Retrieve Cars based on Manufacturer ID",
-        operationId: "retrieveCarsOnManufacturer",
+        tags: ["DirectorsByGenreController"],
+        summary: "Retrieve Directors based on Genre ID",
+        operationId: "retrieveDirectorsOnGenre",
         parameters: [
           {
             name: "id",
@@ -1192,11 +1192,11 @@ const swaggerDefinition = {
             },
             examples: {
               one: {
-                summary: "Retrieve Manufacturer id 1",
+                summary: "Retrieve Genre id 1",
                 value: 1,
               },
               two: {
-                summary: "Retrieve Manufacturer id 2",
+                summary: "Retrieve Genre id 2",
                 value: 2,
               },
             },
@@ -1204,13 +1204,13 @@ const swaggerDefinition = {
         ],
         responses: {
           200: {
-            description: "Array of Car model instances",
+            description: "Array of Director model instances",
             content: {
               "application/json": {
                 schema: {
                   type: "array",
                   items: {
-                    $ref: "#/components/schemas/Car",
+                    $ref: "#/components/schemas/Director",
                   },
                   "x-content-type": "application/json",
                 },
@@ -1223,20 +1223,20 @@ const swaggerDefinition = {
             },
           },
         },
-        "x-swagger-router-controller": "CarsByManufacturerController",
+        "x-swagger-router-controller": "DirectorsByGenreController",
       },
     },
   },
   components: {
     schemas: {
-      Car: {
-        title: "Car",
+      Director: {
+        title: "Director",
         required: [
           "description",
           "name",
-          "engineId",
-          "manufacturerId",
-          "ownerId",
+          "ActorId",
+          "GenreId",
+          "MovieId",
         ],
         type: "object",
         properties: {
@@ -1253,15 +1253,15 @@ const swaggerDefinition = {
           color: {
             type: "string",
           },
-          engineId: {
+          ActorId: {
             type: "integer",
             format: "int64",
           },
-          manufacturerId: {
+          GenreId: {
             type: "integer",
             format: "int64",
           },
-          ownerId: {
+          MovieId: {
             type: "integer",
             format: "int64",
           },
@@ -1272,13 +1272,13 @@ const swaggerDefinition = {
           description: "description",
           name: "name",
           color: "color",
-          engineId: 0,
-          manufacturerId: 0,
-          ownerId: 0,
+          ActorId: 0,
+          GenreId: 0,
+          MovieId: 0,
         },
       },
-      Engine: {
-        title: "Engine",
+      Actor: {
+        title: "Actor",
         required: ["brand", "horsepower", "name"],
         type: "object",
         properties: {
@@ -1305,8 +1305,8 @@ const swaggerDefinition = {
           brand: "brand",
         },
       },
-      Manufacturer: {
-        title: "Manufacturer",
+      Genre: {
+        title: "Genre",
         required: ["description", "founded", "name"],
         type: "object",
         properties: {
@@ -1333,8 +1333,8 @@ const swaggerDefinition = {
           description: "description",
         },
       },
-      Owner: {
-        title: "Owner",
+      Movie: {
+        title: "Movie",
         required: ["age", "name", "sex"],
         type: "object",
         properties: {
@@ -1364,128 +1364,128 @@ const swaggerDefinition = {
       inline_response_200: {
         type: "object",
         properties: {
-          Engine: {
+          Actor: {
             type: "array",
             items: {
-              $ref: "#/components/schemas/Engine",
+              $ref: "#/components/schemas/Actor",
             },
           },
         },
         xml: {
-          name: "Engine",
+          name: "Actor",
         },
       },
       inline_response_200_1: {
         type: "object",
         properties: {
-          Car: {
+          Director: {
             type: "array",
             items: {
-              $ref: "#/components/schemas/Car",
+              $ref: "#/components/schemas/Director",
             },
           },
         },
         xml: {
-          name: "Car",
+          name: "Director",
         },
       },
     },
     examples: {
-      CarExample01: {
+      DirectorExample01: {
         value: {
           id: 1,
-          name: "Car 01",
-          description: "Car 01 description",
-          color: "Car 01 color",
+          name: "Director 01",
+          description: "Director 01 description",
+          color: "Director 01 color",
         },
       },
-      CarExample02: {
+      DirectorExample02: {
         value: {
           id: 2,
-          name: "Car 02",
-          description: "Car 02 description",
-          color: "Car 02 color",
+          name: "Director 02",
+          description: "Director 02 description",
+          color: "Director 02 color",
         },
       },
-      CarInsert: {
+      DirectorInsert: {
         value: {
-          name: "Car",
-          description: "Car description",
-          color: "Car color",
-          engineId: 1,
-          manufacturerId: 1,
-          ownerId: 1,
+          name: "Director",
+          description: "Director description",
+          color: "Director color",
+          ActorId: 1,
+          GenreId: 1,
+          MovieId: 1,
         },
       },
-      EngineExample01: {
+      ActorExample01: {
         value: {
           id: 1,
-          name: "Engine 01",
+          name: "Actor 01",
           brand: "Brand 01",
           horsepower: 0,
         },
       },
-      EngineExample02: {
+      ActorExample02: {
         value: {
           id: 2,
-          name: "Engine 02",
+          name: "Actor 02",
           brand: "Brand 02",
           horsepower: 0,
         },
       },
-      EngineInsert: {
+      ActorInsert: {
         value: {
-          name: "Engine",
-          brand: "Engine brand",
+          name: "Actor",
+          brand: "Actor brand",
           horsepower: 0,
         },
       },
-      ManufacturerExample01: {
+      GenreExample01: {
         value: {
           id: 1,
-          name: "Manufacturer 01",
-          description: "Manufacturer 01 description",
+          name: "Genre 01",
+          description: "Genre 01 description",
           founded: 0,
         },
       },
-      ManufacturerExample02: {
+      GenreExample02: {
         value: {
           id: 2,
-          name: "Manufacturer 02",
-          description: "Manufacturer 02 description",
+          name: "Genre 02",
+          description: "Genre 02 description",
           founded: 0,
         },
       },
-      ManufacturerInsert: {
+      GenreInsert: {
         value: {
-          name: "Manufacturer",
-          description: "Manufacturer description",
+          name: "Genre",
+          description: "Genre description",
           founded: 0,
         },
       },
-      OwnerExample01: {
+      MovieExample01: {
         value: {
           id: 1,
-          name: "Owner 01",
-          description: "Owner 01 description",
+          name: "Movie 01",
+          description: "Movie 01 description",
           age: 0,
           sex: "sex",
         },
       },
-      OwnerExample02: {
+      MovieExample02: {
         value: {
           id: 2,
-          name: "Owner 02",
-          description: "Owner 02 description",
+          name: "Movie 02",
+          description: "Movie 02 description",
           age: 0,
           sex: "sex",
         },
       },
-      OwnerInsert: {
+      MovieInsert: {
         value: {
-          name: "Owner",
+          name: "Movie",
           age: 0,
-          sex: "Owner sex",
+          sex: "Movie sex",
         },
       },
     },
