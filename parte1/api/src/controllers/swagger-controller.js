@@ -1098,7 +1098,7 @@ const swaggerDefinition = {
         ],
         responses: {
           200: {
-            description: "Array of Movies model instances",
+            description: "Array of Movies model instances by genre",
             content: {
               "application/json": {
                 schema: {
@@ -1151,7 +1151,7 @@ const swaggerDefinition = {
         ],
         responses: {
           200: {
-            description: "Array of Genre model instances",
+            description: "Array of Genre model instances by movie",
             content: {
               "application/json": {
                 schema: {
