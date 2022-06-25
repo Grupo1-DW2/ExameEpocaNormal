@@ -1173,59 +1173,6 @@ const swaggerDefinition = {
         "x-swagger-router-controller": "GenreByMoviesController",
       },
     },
-    "/Genres/{id}/Director": {
-      get: {
-        tags: ["DirectorsByGenreController"],
-        summary: "Retrieve Directors based on Genre ID",
-        operationId: "retrieveDirectorsOnGenre",
-        parameters: [
-          {
-            name: "id",
-            in: "path",
-            required: true,
-            style: "simple",
-            explode: false,
-            schema: {
-              minimum: 1,
-              type: "integer",
-              format: "int64",
-            },
-            examples: {
-              one: {
-                summary: "Retrieve Genre id 1",
-                value: 1,
-              },
-              two: {
-                summary: "Retrieve Genre id 2",
-                value: 2,
-              },
-            },
-          },
-        ],
-        responses: {
-          200: {
-            description: "Array of Director model instances",
-            content: {
-              "application/json": {
-                schema: {
-                  type: "array",
-                  items: {
-                    $ref: "#/components/schemas/Director",
-                  },
-                  "x-content-type": "application/json",
-                },
-              },
-              "application/xml": {
-                schema: {
-                  $ref: "#/components/schemas/inline_response_200",
-                },
-              },
-            },
-          },
-        },
-        "x-swagger-router-controller": "DirectorsByGenreController",
-      },
-    },
   },
   components: {
     schemas: {
