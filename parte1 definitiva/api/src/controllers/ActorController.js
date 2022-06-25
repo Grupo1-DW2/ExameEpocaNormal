@@ -1,29 +1,24 @@
 var sql = require("../utils/db");
 
-const countCars = (req, res) => {
-    sql.query("SELECT COUNT(id) FROM car", function (err, result) {
+const countActors = (req, res) => {
+    sql.query("SELECT COUNT(id) FROM actor", function (err, result) {
         if (err) throw err;
         res.send(result);
     });
 };
 
-const retrieveCars = (req, res) => {
-  sql.query("SELECT * FROM car", function (err, result) {
+const retrieveActors = (req, res) => {
+  sql.query("SELECT * FROM actor", function (err, result) {
     if (err) throw err;
     res.send(result);
   });
 };
 
-const createCar = (req, res) => {
+const createActor = (req, res) => {
   sql.query(
-    "INSERT INTO car (name, description, color, engineId, manufacturerId, ownerId) VALUES (?,?,?,?,?,?)",
+    "INSERT INTO actor (name) VALUES (?)",
     [
-      req.body.name,
-      req.body.description,
-      req.body.color,
-      req.body.engineId,
-      req.body.manufacturerId,
-      req.body.ownerId,
+      req.body.name
     ],
     function (err, result) {
       if (err) throw err;
@@ -32,9 +27,9 @@ const createCar = (req, res) => {
   );
 };
 
-const retrieveCar = (req, res) => {
+const retrieveActor = (req, res) => {
     sql.query(
-    "SELECT * FROM car WHERE id = ?",
+    "SELECT * FROM actor WHERE id = ?",
     [req.params.id],
     function (err, result) {
       if (err) throw err;
@@ -43,28 +38,23 @@ const retrieveCar = (req, res) => {
   );
 };
 
-const deleteCar = (req, res) => {
+const deleteActor = (req, res) => {
     sql.query(
-    "DELETE FROM car WHERE id = ?",
+    "DELETE FROM actor WHERE id = ?",
     [req.params.id],
     function (err, result) {
       if (err) throw err;
-      res.send("Car " + req.params.id + " successfully deleted");
+      res.send("Actor " + req.params.id + " successfully deleted");
     }
   );
 };
 
-const updateCar = (req, res) => {
+const updateActor = (req, res) => {
   sql.query(
-    "UPDATE car SET name = ?, description = ?, color = ?, engineId = ?, manufacturerId = ?, ownerId = ? WHERE id = ?",
+    "UPDATE actor SET name = ? WHERE id = ?",
     [
       req.body.name,
-      req.body.description,
-      req.body.color,
-      req.body.engineId,
-      req.body.manufacturerId,
-      req.body.ownerId,
-      req.params.id,
+      req.params.id
     ],
     function (err, result) {
       if (err) throw err;
@@ -73,4 +63,4 @@ const updateCar = (req, res) => {
   );
 };
 
-module.exports = {countCars, retrieveCars, createCar, retrieveCar, updateCar, deleteCar};
+module.exports = {countActors, retrieveActors, createActor, retrieveActor, updateActor, deleteActor};

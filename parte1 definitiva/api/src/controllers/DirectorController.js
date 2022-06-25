@@ -1,22 +1,22 @@
 var sql = require("../utils/db");
 
-const countEngines = (req, res) => {
-    sql.query("SELECT COUNT(id) FROM engine", function (err, result) {
+const countDirectors = (req, res) => {
+    sql.query("SELECT COUNT(id) FROM director", function (err, result) {
         if (err) throw err;
         res.send(result);
     });
 };
 
-const retrieveEngines = (req, res) => {
-  sql.query("SELECT * FROM engine", function (err, result) {
+const retrieveDirectors = (req, res) => {
+  sql.query("SELECT * FROM director", function (err, result) {
     if (err) throw err;
     res.send(result);
   });
 };
 
-const createEngine = (req, res) => {
+const createDirector = (req, res) => {
   sql.query(
-    "INSERT INTO engine (name, horsepower, brand) values (?,?,?)",
+    "INSERT INTO director (name) values (?)",
     [req.body.name, req.body.horsepower, req.body.brand],
     function (err, result) {
       if (err) throw err;
@@ -25,9 +25,9 @@ const createEngine = (req, res) => {
   );
 };
 
-const retrieveEngine = (req, res) => {
+const retrieveDirector = (req, res) => {
   sql.query(
-    "SELECT * FROM engine WHERE id = ?",
+    "SELECT * FROM director WHERE id = ?",
     [req.params.id],
     function (err, result) {
       if (err) throw err;
@@ -36,21 +36,21 @@ const retrieveEngine = (req, res) => {
   );
 };
 
-const deleteEngine = (req, res) => {
+const deleteDirector = (req, res) => {
   sql.query(
     "DELETE FROM car WHERE id = ?",
     [req.params.id],
     function (err, result) {
       if (err) throw err;
-      res.send("Engine " + req.params.id + " successfully deleted");
+      res.send("Director " + req.params.id + " successfully deleted");
     }
   );
 };
 
-const updateEngine = (req, res) => {
+const updateDirector = (req, res) => {
   sql.query(
-    "UPDATE engine SET name = ?, horsepower = ?, brand = ? WHERE id = ?",
-    [req.body.name, req.body.horsepower, req.body.brand, req.params.id],
+    "UPDATE director SET name = ? WHERE id = ?",
+    [req.body.name, req.params.id],
     function (err, result) {
       if (err) throw err;
       res.send(req.body);
@@ -58,4 +58,4 @@ const updateEngine = (req, res) => {
   );
 };
 
-module.exports = {countEngines, retrieveEngines, createEngine, retrieveEngine, updateEngine, deleteEngine};
+module.exports = {countDirectors, retrieveDirectors, createDirector, retrieveDirector, updateDirector, deleteDirector};

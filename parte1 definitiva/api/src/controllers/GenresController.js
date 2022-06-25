@@ -1,26 +1,24 @@
 var sql = require("../utils/db");
 
-const retrieveManufacturers = (req, res) => {
-  sql.query("SELECT * FROM manufacturer", function (err, result) {
+const retrieveGenres = (req, res) => {
+  sql.query("SELECT * FROM genre", function (err, result) {
     if (err) throw err;
     res.send(result);
   });
 };
 
-const countManufacturers = (req, res) => {
-  sql.query("SELECT COUNT(id) FROM manufacturer", function (err, result) {
+const countGenres = (req, res) => {
+  sql.query("SELECT COUNT(id) FROM genre", function (err, result) {
       if (err) throw err;
       res.send(result);
   });
 };
 
-const createManufacturer = (req, res) => {
+const createGenre = (req, res) => {
   sql.query(
-    "INSERT INTO manufacturer (name, founded, description) VALUES (?,?,?)",
+    "INSERT INTO genre (genre) VALUES (?)",
     [
-      req.body.name,
-      req.body.founded,
-      req.body.description
+      req.body.genre,
     ],
     function (err, result) {
       if (err) throw err;
@@ -29,9 +27,9 @@ const createManufacturer = (req, res) => {
   );
 };
 
-const retrieveManufacturer = (req, res) => {
+const retrieveGenre = (req, res) => {
     sql.query(
-    "SELECT * FROM manufacturer WHERE id = ?",
+    "SELECT * FROM genre WHERE id = ?",
     [req.params.id],
     function (err, result) {
       if (err) throw err;
@@ -40,25 +38,22 @@ const retrieveManufacturer = (req, res) => {
   );
 };
 
-const deleteManufacturer = (req, res) => {
+const deleteGenre = (req, res) => {
     sql.query(
-    "DELETE FROM manufacturer WHERE id = ?",
+    "DELETE FROM genre WHERE id = ?",
     [req.params.id],
     function (err, result) {
       if (err) throw err;
-      res.send("Manufacturer " + req.params.id + " successfully deleted");
+      res.send("Genre " + req.params.id + " successfully deleted");
     }
   );
 };
 
-const updateManufacturer = (req, res) => {
+const updateGenre = (req, res) => {
   sql.query(
-    "UPDATE manufacturer SET name = ?, founded = ?, description = ? WHERE id = ?",
+    "UPDATE genre SET genre = ? WHERE id = ?",
     [
-      req.body.name,
-      req.body.founded,
-      req.body.description,
-      req.params.id
+      req.body.genre,
     ],
     function (err, result) {
       if (err) throw err;
@@ -67,4 +62,4 @@ const updateManufacturer = (req, res) => {
   );
 };
 
-module.exports = {countManufacturers, retrieveManufacturers, retrieveManufacturer, deleteManufacturer, updateManufacturer, createManufacturer};
+module.exports = {countGenres, retrieveGenres, retrieveGenre, deleteGenre, updateGenre, createGenre};

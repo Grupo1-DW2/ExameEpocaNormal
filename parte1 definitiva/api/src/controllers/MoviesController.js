@@ -1,26 +1,29 @@
 var sql = require("../utils/db");
 
-const countOwners = (req, res) => {
-    sql.query("SELECT COUNT(id) FROM owner", function (err, result) {
+const countMovies = (req, res) => {
+    sql.query("SELECT COUNT(id) FROM movie", function (err, result) {
         if (err) throw err;
         res.send(result);
     });
 };
 
-const retrieveOwners = (req, res) => {
-  sql.query("SELECT * FROM owner", function (err, result) {
+const retrieveMovies = (req, res) => {
+  sql.query("SELECT * FROM movie", function (err, result) {
     if (err) throw err;
     res.send(result);
   });
 };
 
-const createOwner = (req, res) => {
+const createMovie = (req, res) => {
   sql.query(
-    "INSERT INTO owner (name, age, sex) VALUES (?,?,?)",
+    "INSERT INTO movie (language, original_title, release_date, runtime, actor_id, director_id) VALUES (?,?,?,?,?,?)",
     [
-      req.body.name,
-      req.body.age,
-      req.body.sex
+      req.body.language,
+      req.body.original_title,
+      req.body.release_date,
+      req.body.runtime, 
+      req.body.actor_id, 
+      req.body.director_id
     ],
     function (err, result) {
       if (err) throw err;
@@ -29,9 +32,9 @@ const createOwner = (req, res) => {
   );
 };
 
-const retrieveOwner = (req, res) => {
+const retrieveMovie = (req, res) => {
     sql.query(
-    "SELECT * FROM owner WHERE id = ?",
+    "SELECT * FROM movie WHERE id = ?",
     [req.params.id],
     function (err, result) {
       if (err) throw err;
@@ -40,25 +43,28 @@ const retrieveOwner = (req, res) => {
   );
 };
 
-const deleteOwner = (req, res) => {
+const deleteMovie = (req, res) => {
     sql.query(
-    "DELETE FROM owner WHERE id = ?",
+    "DELETE FROM movie WHERE id = ?",
     [req.params.id],
     function (err, result) {
       if (err) throw err;
-      res.send("Owner " + req.params.id + " successfully deleted");
+      res.send("Movie " + req.params.id + " successfully deleted");
     }
   );
 };
 
-const updateOwner = (req, res) => {
+const updateMovie = (req, res) => {
   sql.query(
-    "UPDATE owner SET name = ?, age = ?, sex = ? WHERE id = ?",
+    "UPDATE movie SET language = ?,  original_title = ?, release_date = ?, runtime=?, actor_id=?, director_id=? WHERE id = ?",
     [
-      req.body.name,
-      req.body.age,
-      req.body.sex,
-      req.params.id
+      req.body.language,
+      req.body.original_title,
+      req.body.release_date,
+      req.body.runtime,
+      req.params.id, 
+      req.body.actor_id, 
+      rec.body.director_id
     ],
     function (err, result) {
       if (err) throw err;
@@ -67,4 +73,4 @@ const updateOwner = (req, res) => {
   );
 };
 
-module.exports = {countOwners, retrieveOwners, retrieveOwner, deleteOwner, updateOwner, createOwner};
+module.exports = {countMovies, retrieveMovies, retrieveMovie, deleteMovie, updateMovie, createMovie};
