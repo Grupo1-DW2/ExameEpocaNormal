@@ -1,6 +1,7 @@
 
 pasta src:
-    - controllers
+    - controllers (menos o AuthController)
+    - 
     - routes
 
 no ficheiro middlewares/passport.js, falta fazer as cenas de autenticação do GitHub 
