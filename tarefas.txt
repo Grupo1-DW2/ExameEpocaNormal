@@ -1,13 +1,10 @@
 
 
-no ficheiro middlewares/passport.js, falta fazer as cenas de autenticação do GitHub 
-
 pasta src:
     - controllers
-    - public
     - routes
-    - utils
 
+no ficheiro middlewares/passport.js, falta fazer as cenas de autenticação do GitHub 
 
 ficheiro index.js concluído (talvez seja preciso alterar algumas coisas)
 
