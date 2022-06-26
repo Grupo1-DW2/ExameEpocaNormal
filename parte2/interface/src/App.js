@@ -357,12 +357,18 @@ const App = () => {
             <EditMovie
               movies={movies}
               handleEditMovie={handleEditMovie}
-              editNameMan={editNameMan}
-              setEditNameMan={setEditNameMan}
-              editFounded={editFounded}
-              setEditFounded={setEditFounded}
-              editDescriptionMan={editDescriptionMan}
-              setEditDescriptionMan={setEditDescriptionMan}
+              editLanguage={editLanguage}
+              setEditLanguage={setEditLanguage}
+              editOriginal_Title={editOriginal_Title}
+              setEditOriginal_Title={setEditOriginal_Title}
+              editRelease_Date={editRelease_Date}
+              setEditRelease_Date={setEditRelease_Date}
+              editRuntime={editRuntime}
+              setEditRuntime={setEditRuntime}
+              editActor_id={editActor_id}
+              setEditActor_id={setEditActor_id}
+              editDirector_id={editDirector_id}
+              setEditDirector_id={setEditDirector_id}
             />
           }
         ></Route>
@@ -373,12 +379,18 @@ const App = () => {
             <CreateMovie
               movies={movies}
               handleCreateMovie={handleCreateMovie}
-              createNameMan={createNameMan}
-              setCreateNameMan={setCreateNameMan}
-              createFounded={createFounded}
-              setCreateFounded={setCreateFounded}
-              createDescriptionMan={createDescriptionMan}
-              setCreateDescriptionMan={setCreateDescriptionMan}
+              createLanguage={createLanguage}
+              setCreateLanguage={setCreateLanguage}
+              createOriginal_Title={createOriginal_Title}
+              setCreateOriginal_Title={setCreateOriginal_Title}
+              createRelease_Date={createRelease_Date}
+              setCreateRelease_Date={setCreateRelease_Date}
+              createRuntime={createRuntime}
+              setCreateRuntime={setCreateRuntime}
+              createActor_id={createActor_id}
+              setCreateActor_id={setCreateActor_id}
+              createDirector_id={createDirector_id}
+              setCreateDirector_id={setCreateDirector_id}
             />
           }
         ></Route>
@@ -406,7 +418,7 @@ const Navigation = () => (
         <NavLink to="/genres">Genres</NavLink>
       </li>
       <li>
-        <a href="http://localhost:3000/auth/github"><i class="bi bi-github"></i> Login with GitHub</a>
+        <a href="http://localhost:3000/auth/github"><i class="bi bi-github"></i> Entrar com o GitHub</a>
       </li>
     </ul>
   </nav>
@@ -416,7 +428,7 @@ const Navigation = () => (
 
 const Home = () => (
   <div className="home">
-    <h1>Actor Dealership Interface</h1>
+    <h1>Movies Information</h1>
   </div>
 );
 
