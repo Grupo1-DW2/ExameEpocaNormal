@@ -13,13 +13,6 @@ _O repositório está organizado da seguite maneira:_
 * Parte 2 
 
 
-## Galeria 
-
-| ![recursos](doc/images/image2.png)           | ![Get](doc/images/image3.png)  |
-| ---------------------------- | ----------- |
-| ![Put](doc/images/image4.png)                | 
-
-
 ## Tecnologias 
 
 _As tecnologias usadas neste projeto, foram as seguites:_
