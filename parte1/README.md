@@ -1,6 +1,6 @@
-# Desenvolvimento Web II
+# Parte 2 - Desenvolvimento Web I
 
-Neste repositório está o projeto desenvolvido para a disciplina 'Desenvolvimento Web II', uma disciplina de segundo ano do curso de informática da Universidade da Maia. Desenvolvido pelo Grupo _01_: [@AnaAzevedo](https://github.com/AnaAzevedo2), [@MarianaLopes](https://github.com/marlope02), [@MarioRodrigues](https://github.com/MarioRodrigues2304), [@Rodrigo Moreira](https://github.com/rodmoreira41).
+Neste repositório está o projeto desenvolvido para a disciplina 'Desenvolvimento Web I', uma disciplina de segundo ano do curso de informática da Universidade da Maia. Desenvolvido pelo Grupo _01_: [@AnaAzevedo](https://github.com/AnaAzevedo2), [@MarianaLopes](https://github.com/marlope02), [@MarioRodrigues](https://github.com/MarioRodrigues2304), [@Rodrigo Moreira](https://github.com/rodmoreira41).
 
 ## Tema 
 
@@ -9,8 +9,16 @@ Este trabalho tem como âmbito o desenho e criação de um serviço web que rela
 ## Organização do repositório 
 
 _O repositório está organizado da seguite maneira:_
-* Parte 1  
-* Parte 2 
+* **Código Fonte** está na pasta [src](src/).
+* [Documento MYSQL](src/api/openapi.yaml) para criação da Base de Dados.
+* [Documento Docker-compose](Queries_base_de_dados.sql)para puxar as imagens dos repositórios DockerHub e montar a aplicação.
+
+
+## Galeria 
+
+| ![recursos](doc/images/image2.png)           | ![Get](doc/images/image3.png)  |
+| ---------------------------- | ----------- |
+| ![Put](doc/images/image4.png)                | 
 
 
 ## Tecnologias 
@@ -27,8 +35,16 @@ _As tecnologias usadas neste projeto, foram as seguites:_
 
 * Docker
 * NodeJS
-* ReactJS
 
+## Relatório
+_Estão adicionados um documento por capítulo_
+
+### Apresentação da API
+* Capítulo 1: [Apresentação do Projeto](doc/c1.md)
+### Recursos
+* Capítulo 2: [Recursos](doc/c2.md)
+### Produto
+* Capítulo 3: [Produto](doc/c3.md)
 
 <br>
 
