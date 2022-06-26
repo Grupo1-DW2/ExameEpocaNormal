@@ -41,11 +41,11 @@ _As tecnologias usadas neste projeto, foram as seguites:_
 _Estão adicionados um documento por capítulo_
 
 ### Apresentação da API
-* Capítulo 1: [Apresentação do Projeto](doc/c1.md)
+* Capítulo 1: [Apresentação do Projeto](doc_P1/c1.md)
 ### Recursos
-* Capítulo 2: [Recursos](doc/c2.md)
+* Capítulo 2: [Recursos](doc_P1/c2.md)
 ### Produto
-* Capítulo 3: [Produto](doc/c3.md)
+* Capítulo 3: [Produto](doc_P1/c3.md)
 
 <br>
 
