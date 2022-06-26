@@ -9,8 +9,8 @@ Este trabalho tem como âmbito o desenho e criação de um serviço web que rela
 ## Organização do repositório 
 
 _O repositório está organizado da seguite maneira:_
-* Parte 1  
-* Parte 2 
+* [Parte 1](parte1)
+* [Parte 2](parte2)
 
 
 ## Tecnologias 
