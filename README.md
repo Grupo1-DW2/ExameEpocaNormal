@@ -4,22 +4,15 @@ Neste repositório está o projeto desenvolvido para a disciplina 'Desenvolvimen
 
 ## Tema 
 
-Este trabalho tem como âmbito o desenho e criação de um serviço web que relaciona recursos. Tais recursos como 'Movies', 'Genres', 'Actor' e 'Director'.   
+Este trabalho tem como âmbito o desenho e criação de um serviço web que relaciona recursos. Tais recursos como 'Movies', 'Genres', 'Actor' e 'Director'. O recuso 'Movies' será o recurso principal, já que terá um genero, ator e diretor associado.  
 
 ## Organização do repositório 
 
 _O repositório está organizado da seguite maneira:_
 * **Código Fonte** está na pasta [src](src/).
-* Capítulos do relatório estão na pasta [doc](doc/).
-* [Documento OpenAPI](src/api/openapi.yaml) inicial.
-* [Documento MYSQL](Queries_base_de_dados.sql) para criação da Base de Dados.
-* [Documento Docker-compose](src/docker-compose.yml) para puxar as imagens dos repositórios DockerHub e montar a aplicação.
+* [Documento MYSQL](src/api/openapi.yaml) para criação da Base de Dados.
+* [Documento Docker-compose](Queries_base_de_dados.sql)para puxar as imagens dos repositórios DockerHub e montar a aplicação.
 
-<br>
-
-* **Docker** - https://hub.docker.com/u/inf21dw1g01
-
-<br>
 
 ## Galeria 
 
@@ -31,7 +24,8 @@ _O repositório está organizado da seguite maneira:_
 ## Tecnologias 
 
 _As tecnologias usadas neste projeto, foram as seguites:_
-* Javascript
+* OAuth 2.0
+* JavaScript
 * NodeJS
 * MySQL
 * OpenAPI
@@ -46,7 +40,7 @@ _As tecnologias usadas neste projeto, foram as seguites:_
 _Estão adicionados um documento por capítulo_
 
 ### Apresentação da API
-* Capítulo 1: [Apresentação da API](doc/c1.md)
+* Capítulo 1: [Apresentação do Projeto](doc/c1.md)
 ### Recursos
 * Capítulo 2: [Recursos](doc/c2.md)
 ### Produto
