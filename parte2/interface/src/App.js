@@ -6,21 +6,21 @@ import { NavLink, Routes, Route, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-import Car from "./Resources/Car";
-import EditCar from "./Ops/EditCar";
-import CreateCar from "./Ops/CreateCar";
+import Actor from "./Resources/Actor";
+import EditActor from "./Ops/EditActor";
+import CreateActor from "./Ops/CreateActor";
 
-import Engine from "./Resources/Engine";
-import EditEngine from "./Ops/EditEngine";
-import CreateEngine from "./Ops/CreateEngine";
+import Director from "./Resources/Director";
+import EditDirector from "./Ops/EditDirector";
+import CreateDirector from "./Ops/CreateDirector";
 
-import Manufacturer from "./Resources/Manufacturer";
-import EditManufacturer from "./Ops/EditManufacturer";
-import CreateManufacturer from "./Ops/CreateManufacturer";
+import Movie from "./Resources/Movie";
+import EditMovie from "./Ops/EditMovie";
+import CreateMovie from "./Ops/CreateMovie";
 
-import Owner from "./Resources/Owner";
-import EditOwner from "./Ops/EditOwner";
-import CreateOwner from "./Ops/CreateOwner";
+import Genre from "./Resources/Genre";
+import EditGenre from "./Ops/EditGenre";
+import CreateGenre from "./Ops/CreateGenre";
 
 const request = axios.create({
   withCredentials: true,
@@ -31,400 +31,332 @@ const api = request.create({
 });
 
 const App = () => {
-  // ----------------------------------------------------- HandleEditCar -----------------------------------------------------
-  //Definição de estados para props para a Ediçao do carro
+  // ----------------------------------------------------- HandleEditActor -----------------------------------------------------
+  //Definição de estados para props para a Ediçao do actor
   const navigate = useNavigate();
   const [editName, setEditName] = useState("");
-  const [editDescription, setEditDescription] = useState("");
-  const [editColor, setEditColor] = useState("");
-  const [editEngineId, setEditEngineId] = useState("");
-  const [editManufacturerId, setEditManufacturerId] = useState("");
-  const [editOwnerId, setEditOwnerId] = useState("");
 
-  const [cars, setPosts] = React.useState([]);
+  const [actors, setPosts] = React.useState([]);
 
-  //fetchCars para popular array de carros
+  //fetchActors para popular array de actor
   React.useEffect(() => {
-    const fetchCars = async () => {
-      const response = await api.get("/Cars");
+    const fetchActors = async () => {
+      const response = await api.get("/Actors");
       setPosts(response.data);
     };
-    fetchCars();
+    fetchActors();
   }, []);
 
-  //função handleEditCar
-  const handleEditCar = async (id) => {
-    const updatedCar = {
+  //função handleEditActor
+  const handleEditActor = async (id) => {
+    const updatedActor = {
       id,
       name: editName,
-      description: editDescription,
-      color: editColor,
-      engineId: editEngineId,
-      manufacturerId: editManufacturerId,
-      ownerId: editOwnerId,
     };
     try {
-      const response = await api.put(`Car/${id}`, updatedCar);
-      setPosts(cars.map((car) => (car.id === id ? { ...response.data } : car)));
+      const response = await api.put(`Actor/${id}`, updatedActor);
+      setPosts(actors.map((actor) => (actor.id === id ? { ...response.data } : actor)));
       setEditName("");
-      setEditDescription("");
-      setEditColor("");
-      setEditEngineId("");
-      setEditManufacturerId("");
-      setEditOwnerId("");
-      navigate("/Cars");
+      navigate("/Actors");
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
-  // ----------------------------------------------------- Fim HandleEditCar -----------------------------------------------------
-  // -----------------------------------------------------  HandleCreateCar -----------------------------------------------------
+  // ----------------------------------------------------- Fim HandleEditActor -----------------------------------------------------
+  // -----------------------------------------------------  HandleCreateActor -----------------------------------------------------
   const [createName, setCreateName] = useState("");
-  const [createDescription, setCreateDescription] = useState("");
-  const [createColor, setCreateColor] = useState("");
-  const [createEngineId, setCreateEngineId] = useState("");
-  const [createManufacturerId, setCreateManufacturerId] = useState("");
-  const [createOwnerId, setCreateOwnerId] = useState("");
 
-  const handleCreateCar = async (e) => {
+  const handleCreateActor = async (e) => {
     e.preventDefault();
-    const createCar = {
+    const createActor = {
       name: createName,
-      description: createDescription,
-      color: createColor,
-      engineId: createEngineId,
-      manufacturerId: createManufacturerId,
-      ownerId: createOwnerId,
     };
     try {
-      const response = await api.post("/Cars", createCar);
-      const allCars = [...cars, response.data];
-      setPosts(allCars);
+      const response = await api.post("/Actors", createActor);
+      const allActors = [...actors, response.data];
+      setPosts(allActors);
       setCreateName("");
-      setCreateDescription("");
-      setCreateColor("");
-      setCreateEngineId("");
-      setCreateManufacturerId("");
-      setCreateOwnerId("");
-      navigate("/Cars");
+      navigate("/Actors");
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
 
-  // ----------------------------------------------------- Fim HandleCreateCar -----------------------------------------------------
-  // ----------------------------------------------------- HandleEditEngine -----------------------------------------------------
-  const [editNameEngine, setEditNameEngine] = useState("");
-  const [editHP, setEditHP] = useState("");
-  const [editBrand, setEditBrand] = useState("");
+  // ----------------------------------------------------- Fim HandleCreateActor -----------------------------------------------------
+ 
+ 
+ 
+ 
+  // ----------------------------------------------------- HandleEditDirector -----------------------------------------------------
+  const [editNameDirector, setEditNameDirector] = useState("");
 
-  const [engines, setEngines] = React.useState([]);
+  const [directors, setDirectors] = React.useState([]);
 
-  //fetchCars para popular array de carros
+  //fetchActors para popular array de actorros
   React.useEffect(() => {
-    const fetchEngines = async () => {
-      const response = await api.get("/Engines");
-      setEngines(response.data);
+    const fetchDirectors = async () => {
+      const response = await api.get("/Directors");
+      setDirectors(response.data);
     };
-    fetchEngines();
+    fetchDirectors();
   }, []);
 
-  //função handleEditCar
-  const handleEditEngine = async (id) => {
-    const updatedEngine = {
+  //função handleEditActor
+  const handleEditDirector = async (id) => {
+    const updatedDirector = {
       id,
-      name: editNameEngine,
-      horsepower: editHP,
-      brand: editBrand,
+      name: editNameDirector,
     };
     try {
-      const response = await api.put(`Engine/${id}`, updatedEngine);
+      const response = await api.put(`Director/${id}`, updatedDirector);
       setPosts(
-        engines.map((engine) =>
-          engine.id === id ? { ...response.data } : engine
+        directors.map((director) =>
+          director.id === id ? { ...response.data } : director
         )
       );
-      setEditNameEngine("");
-      setEditHP("");
-      setEditBrand("");
-      navigate("/Engines");
+      setEditNameDirector("");
+      navigate("/Directors");
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
-  // ----------------------------------------------------- Fim HandleEditEngine -----------------------------------------------------
-  // -----------------------------------------------------  HandleCreateCar -----------------------------------------------------
-  const [createNameEngine, setCreateNameEngine] = useState("");
-  const [createHP, setCreateHP] = useState("");
-  const [createBrand, setCreateBrand] = useState("");
+  // ----------------------------------------------------- Fim HandleEditDirector -----------------------------------------------------
+  // -----------------------------------------------------  HandleCreateDirector -----------------------------------------------------
+  const [createNameDirector, setCreateNameDirector] = useState("");
 
-  const handleCreateEngine = async (e) => {
+
+  const handleCreateDirector = async (e) => {
     e.preventDefault();
-    const createCar = {
-      name: createNameEngine,
-      horsepower: createHP,
-      brand: createBrand,
+    const createActor = {
+      name: createNameDirector,
     };
     try {
-      const response = await api.post("/Engines", createCar);
-      const allEngines = [...engines, response.data];
-      setPosts(allEngines);
-      setCreateNameEngine("");
-      setCreateHP("");
-      setCreateBrand("");
-      navigate("/Engines");
+      const response = await api.post("/Directors", createActor);
+      const allDirectors = [...directors, response.data];
+      setPosts(allDirectors);
+      setCreateNameDirector("");
+      navigate("/Directors");
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
 
-  // ----------------------------------------------------- Fim HandleCreateCar -----------------------------------------------------
-  // ----------------------------------------------------- HandleEditOwner -----------------------------------------------------
-  const [editNameOwn, setEditNameOwn] = useState("");
-  const [editAge, setEditAge] = useState("");
-  const [editSex, setEditSex] = useState("");
+  // ----------------------------------------------------- Fim HandleCreateActor -----------------------------------------------------
+  // ----------------------------------------------------- HandleEditGenre -----------------------------------------------------
+  const [editNameGenre, setEditNameGenre] = useState("");
 
-  const [owners, setOwners] = React.useState([]);
+  const [genres, setGenres] = React.useState([]);
 
   React.useEffect(() => {
-    const fetchOwners = async () => {
-      const response = await api.get("/Owners");
-      setOwners(response.data);
+    const fetchGenres = async () => {
+      const response = await api.get("/Genres");
+      setGenres(response.data);
     };
-    fetchOwners();
+    fetchGenres();
   }, []);
 
-  const handleEditOwner = async (id) => {
-    const updatedOwner = {
+  const handleEditGenre = async (id) => {
+    const updatedGenre = {
       id,
-      name: editNameOwn,
-      age: editAge,
-      sex: editSex,
+      name: editNameGenre,
     };
     try {
-      const response = await api.put(`Owner/${id}`, updatedOwner);
-      setOwners(
-        owners.map((owner) => (owner.id === id ? { ...response.data } : owner))
+      const response = await api.put(`Genre/${id}`, updatedGenre);
+      setGenres(
+        genres.map((genre) => (genre.id === id ? { ...response.data } : genre))
       );
-      setEditNameOwn("");
-      setEditAge("");
-      setEditSex("");
-      navigate("/Owners");
+      setEditNameGenre("");
+      navigate("/Genres");
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
-  // ----------------------------------------------------- Fim HandleEditOwner -----------------------------------------------------
-  // ----------------------------------------------------- HandleCreateOwner -----------------------------------------------------
-  const [createNameOwn, setCreateNameOwn] = useState("");
-  const [createAge, setCreateAge] = useState("");
-  const [createSex, setCreateSex] = useState("");
+  // ----------------------------------------------------- Fim HandleEditGenre -----------------------------------------------------
+  // ----------------------------------------------------- HandleCreateGenre -----------------------------------------------------
+  const [createNameGenre, setCreateGenre] = useState("");
 
-  const handleCreateOwner = async (e) => {
+  const handleCreateGenre = async (e) => {
     e.preventDefault();
-    const createOwner = {
-      name: createNameOwn,
-      age: createAge,
-      sex: createSex,
+    const createGenre = {
+      genre: createNameGenre,
     };
     try {
-      const response = await api.post("/Owners", createOwner);
-      const allOwners = [...owners, response.data];
-      setOwners(allOwners);
-      setCreateNameOwn("");
-      setCreateAge("");
-      setCreateSex("");
-      navigate("/Owners");
+      const response = await api.post("/Genres", createGenre);
+      const allGenres = [...genres, response.data];
+      setGenres(allGenres);
+      setCreateGenre("");
+      navigate("/Genres");
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
-  // ----------------------------------------------------- Fim HandleCreateOwner -----------------------------------------------------
-  // ----------------------------------------------------- HandleEditManufacturer -----------------------------------------------------
-  const [editNameMan, setEditNameMan] = useState("");
-  const [editFounded, setEditFounded] = useState("");
-  const [editDescriptionMan, setEditDescriptionMan] = useState("");
+  // ----------------------------------------------------- Fim HandleCreateGenre -----------------------------------------------------
+  // ----------------------------------------------------- HandleEditMovie -----------------------------------------------------
+  const [editLanguage, setEditLanguage] = useState("");
+  const [editOriginal_Title, setEditOriginal_Title] = useState("");
+  const [editRelease_Date, setEditRelease_Date] = useState("");
+  const [editRuntime, setEditRuntime] = useState("");
+  const [editActor_id, setEditActor_id] = useState("");
+  const [editDirector_id, setEditDirector_id] = useState("");
 
-  const [manufacturers, setManufacturers] = React.useState([]);
+
+  const [movies, setMovies] = React.useState([]);
 
   React.useEffect(() => {
-    const fetchManufacturers = async () => {
-      const response = await api.get("/Manufacturers");
-      setManufacturers(response.data);
+    const fetchMovies = async () => {
+      const response = await api.get("/Movies");
+      setMovies(response.data);
     };
-    fetchManufacturers();
+    fetchMovies();
   }, []);
 
-  const handleEditManufacturer = async (id) => {
-    const updatedManufacturer = {
+  const handleEditMovie = async (id) => {
+    const updatedMovie = {
       id,
-      name: editNameMan,
-      founded: editFounded,
-      description: editDescriptionMan,
+      language: editLanguage,
+      Original_Title: editOriginal_Title,
+      Release_Date: editRelease_Date,
+      Runtime: editRuntime,
+      Actor_id: editActor_id,
+      Director_id: editDirector_id,
     };
     try {
-      const response = await api.put(`Manufacturer/${id}`, updatedManufacturer);
-      setManufacturers(
-        manufacturers.map((manufacturer) =>
-          manufacturer.id === id ? { ...response.data } : manufacturer
+      const response = await api.put(`Movie/${id}`, updatedMovie);
+      setMovies(
+        movies.map((movie) =>
+          movie.id === id ? { ...response.data } : movie
         )
       );
-      setEditNameMan("");
-      setEditFounded("");
-      setEditDescriptionMan("");
-      navigate("/Manufacturers");
+      setEditLanguage("");
+      setEditOriginal_Title("");
+      setEditRelease_Date("");
+      setEditRuntime("");
+      setEditActor_id("");
+      setEditDirector_id("");
+      navigate("/Movies");
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
-  // ----------------------------------------------------- Fim HandleEditManufacturer -----------------------------------------------------
-  // ----------------------------------------------------- HandleCreateManufacturer -----------------------------------------------------
-  const [createNameMan, setCreateNameMan] = useState("");
-  const [createFounded, setCreateFounded] = useState("");
-  const [createDescriptionMan, setCreateDescriptionMan] = useState("");
+  // ----------------------------------------------------- Fim HandleEditMovie -----------------------------------------------------
+  // ----------------------------------------------------- HandleCreateMovie -----------------------------------------------------
+  const [createLanguage, setCreateLanguage] = useState("");
+  const [createOriginal_Title, setCreateOriginal_Title] = useState("");
+  const [createRelease_Date, setCreateRelease_Date] = useState("");
+  const [createRuntime, setCreateRuntime] = useState("");
+  const [createActor_id, setCreateActor_id] = useState("");
+  const [createDirector_id, setCreateDirector_id] = useState("");
 
-  const handleCreateManufacturer = async (e) => {
+  const handleCreateMovie = async (e) => {
     e.preventDefault();
-    const createManufacturer = {
-      name: createNameMan,
-      founded: createFounded,
-      description: createDescriptionMan,
+    const createMovie = {
+      language: createLanguage,
+      Original_Title: createOriginal_Title,
+      Release_Date: createRelease_Date,
+      Runtime: createRuntime,
+      Actor_id: createActor_id,
+      Director_id: createDirector_id,
     };
     try {
-      const response = await api.post("/Manufacturers", createManufacturer);
-      const allManufacturers = [...manufacturers, response.data];
-      setManufacturers(allManufacturers);
-      setCreateNameMan("");
-      setCreateFounded("");
-      setCreateDescriptionMan("");
-      navigate("/Manufacturers");
+      const response = await api.post("/Movies", createMovie);
+      const allMovies = [...movies, response.data];
+      setCreateLanguage("");
+      setCreateOriginal_Title("");
+      setCreateRelease_Date("");
+      setCreateRuntime("");
+      setCreateActor_id("");
+      setCreateDirector_id("");
+      navigate("/Movies");
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
-  // ----------------------------------------------------- Fim HandleCreateManufacturer -----------------------------------------------------
+  // ----------------------------------------------------- Fim HandleCreateMovie -----------------------------------------------------
 
   return (
     <div className="app">
-      <h1>Car Dealership</h1>
+      <h1>Movies</h1>
       <Navigation />
       <Routes>
         <Route exact path="/" element={<Home />}></Route>
-        <Route exact path="/engines" element={<Engine />}></Route>
-        <Route exact path="/cars" element={<Car />}></Route>
-        <Route exact path="/manufacturers" element={<Manufacturer />}></Route>
-        <Route exact path="/owners" element={<Owner />}></Route>
+        <Route exact path="/directors" element={<Director />}></Route>
+        <Route exact path="/actors" element={<Actor />}></Route>
+        <Route exact path="/movies" element={<Movie />}></Route>
+        <Route exact path="/genres" element={<Genre />}></Route>
         <Route
-          path="/car/:id"
+          path="/actor/:id"
           element={
-            <EditCar
-              cars={cars}
-              handleEditCar={handleEditCar}
+            <EditActor
+              actors={actors}
+              handleEditActor={handleEditActor}
               editName={editName}
               setEditName={setEditName}
-              editDescription={editDescription}
-              setEditDescription={setEditDescription}
-              editColor={editColor}
-              setEditColor={setEditColor}
-              editManufacturerId={editManufacturerId}
-              setEditManufacturerId={setEditManufacturerId}
-              editOwnerId={editOwnerId}
-              setEditOwnerId={setEditOwnerId}
-              editEngineId={editEngineId}
-              setEditEngineId={setEditEngineId}
             />
           }
         ></Route>
         <Route
           exact
-          path="/car/create"
+          path="/actor/create"
           element={
-            <CreateCar
-              cars={cars}
-              handleCreateCar={handleCreateCar}
+            <CreateActor
+              actors={actors}
+              handleCreateActor={handleCreateActor}
               createName={createName}
               setCreateName={setCreateName}
-              createDescription={createDescription}
-              setCreateDescription={setCreateDescription}
-              createColor={createColor}
-              setCreateColor={setCreateColor}
-              createManufacturerId={createManufacturerId}
-              setCreateManufacturerId={setCreateManufacturerId}
-              createOwnerId={createOwnerId}
-              setCreateOwnerId={setCreateOwnerId}
-              createEngineId={createEngineId}
-              setCreateEngineId={setCreateEngineId}
             />
           }
         ></Route>
         <Route
-          path="/engine/:id"
+          path="/director/:id"
           element={
-            <EditEngine
-              engines={engines}
-              handleEditEngine={handleEditEngine}
-              editNameEngine={editNameEngine}
-              setEditNameEngine={setEditNameEngine}
-              editHP={editHP}
-              setEditHP={setEditHP}
-              editBrand={editBrand}
-              setEditBrand={setEditBrand}
+            <EditDirector
+              directors={directors}
+              handleEditDirector={handleEditDirector}
+              editNameDirector={editNameDirector}
+              setEditNameDirector={setEditNameDirector}
             />
           }
         ></Route>
         <Route
           exact
-          path="/engine/create"
+          path="/director/create"
           element={
-            <CreateEngine
-              engines={engines}
-              handleCreateEngine={handleCreateEngine}
-              createNameEngine={createNameEngine}
-              setCreateNameEngine={setCreateNameEngine}
-              createHP={createHP}
-              setCreateHP={setCreateHP}
-              createBrand={createBrand}
-              setCreateBrand={setCreateBrand}
+            <CreateDirector
+              directors={directors}
+              handleCreateDirector={handleCreateDirector}
+              createNameDirector={createNameDirector}
+              setCreateNameDirector={setCreateNameDirector}
             />
           }
         ></Route>
         <Route
-          path="/owner/:id"
+          path="/genre/:id"
           element={
-            <EditOwner
-              owners={owners}
-              handleEditOwner={handleEditOwner}
-              editNameOwn={editNameOwn}
-              setEditNameOwn={setEditNameOwn}
-              editAge={editAge}
-              setEditAge={setEditAge}
-              editSex={editSex}
-              setEditSex={setEditSex}
+            <EditGenre
+              genres={genres}
+              handleEditGenre={handleEditGenre}
+              editNameGenre={editNameGenre}
+              setEditNameGenre={setEditNameGenre}
             />
           }
         ></Route>
         <Route
           exact
-          path="/owner/create"
+          path="/genre/create"
           element={
-            <CreateOwner
-              owners={owners}
-              handleCreateOwner={handleCreateOwner}
-              createNameOwn={createNameOwn}
-              setCreateNameOwn={setCreateNameOwn}
-              createAge={createAge}
-              setCreateAge={setCreateAge}
-              createSex={createSex}
-              setCreateSex={setCreateSex}
+            <CreateGenre
+              genres={genres}
+              handleCreateGenre={handleCreateGenre}
+              createNameGenre={createNameGenre}
             />
           }
         ></Route>
         <Route
-          path="/manufacturer/:id"
+          path="/movie/:id"
           element={
-            <EditManufacturer
-              manufacturers={manufacturers}
-              handleEditManufacturer={handleEditManufacturer}
+            <EditMovie
+              movies={movies}
+              handleEditMovie={handleEditMovie}
               editNameMan={editNameMan}
               setEditNameMan={setEditNameMan}
               editFounded={editFounded}
@@ -436,11 +368,11 @@ const App = () => {
         ></Route>
         <Route
           exact
-          path="/manufacturer/create"
+          path="/movie/create"
           element={
-            <CreateManufacturer
-              manufacturers={manufacturers}
-              handleCreateManufacturer={handleCreateManufacturer}
+            <CreateMovie
+              movies={movies}
+              handleCreateMovie={handleCreateMovie}
               createNameMan={createNameMan}
               setCreateNameMan={setCreateNameMan}
               createFounded={createFounded}
@@ -462,16 +394,16 @@ const Navigation = () => (
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/engines">Engines</NavLink>
+        <NavLink to="/directors">Directors</NavLink>
       </li>
       <li>
-        <NavLink to="/cars">Cars</NavLink>
+        <NavLink to="/actors">Actors</NavLink>
       </li>
       <li>
-        <NavLink to="/manufacturers">Manufacturers</NavLink>
+        <NavLink to="/movies">Movies</NavLink>
       </li>
       <li>
-        <NavLink to="/owners">Owners</NavLink>
+        <NavLink to="/genres">Genres</NavLink>
       </li>
       <li>
         <a href="http://localhost:3000/auth/github"><i class="bi bi-github"></i> Login with GitHub</a>
@@ -484,7 +416,7 @@ const Navigation = () => (
 
 const Home = () => (
   <div className="home">
-    <h1>Car Dealership Interface</h1>
+    <h1>Actor Dealership Interface</h1>
   </div>
 );
 

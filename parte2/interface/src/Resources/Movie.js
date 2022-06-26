@@ -2,26 +2,26 @@ import React from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
-const manufacturers = "http://localhost:3000/Manufacturers";
-const manufacturer = "http://localhost:3000/Manufacturer";
+const movies = "http://localhost:3000/Movies";
+const movie = "http://localhost:3000/Movie";
 
 const request = axios.create({
     withCredentials: true,
   });
 
-export default function Manufacturers() {
+export default function Movies() {
     const [regs, setPosts] = React.useState(null);
     const [, setState] = React.useState(null);
   
     React.useEffect(() => {
-      request.get(manufacturers).then((response) => {
+      request.get(movies).then((response) => {
         setPosts(response.data);
       });
     }, []);
   
-    function deleteManufacturer(event) {
+    function deleteMovie(event) {
       const deletedId = event.currentTarget.dataset.index;
-      request.delete(`${manufacturer}/${deletedId}`).then(() => {
+      request.delete(`${movie}/${deletedId}`).then(() => {
         regs.splice(
           regs.findIndex((el) => String(el.id) === String(deletedId)),
           1
@@ -34,14 +34,17 @@ export default function Manufacturers() {
     if (!regs) return null;
     return (
       <div>
-        <Link to={`/manufacturer/create`}><button style={{"margin-bottom": "20px"}} class="btn btn-success">Create Manufacturer</button></Link>
+        <Link to={`/movie/create`}><button style={{"margin-bottom": "20px"}} class="btn btn-success">Create Movie</button></Link>
         <table style={{textAlign: "center"}} class="table table-striped table-dark" border="solid 1px">
           <thead>
             <tr>
               <th width="4%">#</th>
-              <th width="25%">Name</th>
-              <th width="25%">Foundation</th>
-              <th width="25%">Description</th>
+              <th width="25%">Language</th>
+              <th width="25%">Original_Title</th>
+              <th width="25%">Release_Date</th>
+              <th width="25%">Runtime</th>
+              <th width="25%">Actor_id</th>
+              <th width="25%">Director_id</th>
               <th width="10%" colspan="2"></th>
             </tr>
           </thead>
@@ -49,14 +52,17 @@ export default function Manufacturers() {
             {regs.map((reg, i) => (
               <tr key={i}>
                 <td>{reg.id}</td>
-                <td>{reg.name}</td>
-                <td>{reg.founded}</td>
-                <td>{reg.description}</td>
+                <td>{reg.language}</td>
+                <td>{reg.original_title}</td>
+                <td>{reg.release_date}</td>
+                <td>{reg.runtime}</td>
+                <td>{reg.actor_id}</td>
+                <td>{reg.director_id}</td>
                 <td>
-                  <Link to={`/manufacturer/${reg.id}`}><button class="btn btn-primary">Update</button></Link>
+                  <Link to={`/movie/${reg.id}`}><button class="btn btn-primary">Update</button></Link>
                 </td>
                 <td>
-                  <button class="btn btn-danger" data-index={reg.id} onClick={deleteManufacturer}>
+                  <button class="btn btn-danger" data-index={reg.id} onClick={deleteMovie}>
                     Delete
                   </button>
                 </td>

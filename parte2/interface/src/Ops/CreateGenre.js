@@ -1,12 +1,12 @@
 const CreateGenre = ({
-    handleCreateGenre, createGenreMan, setCreateGenreMan, createFounded, setCreateFounded, createDescriptionMan, setCreateDescriptionMan
+    handleCreateGenre, createNameGenre
 }) => {
   return (
     <main>
       <h2>Create Genre</h2>
       <form class="form-group" onSubmit={handleCreateGenre}>
         <label class="form-label">Genre:</label>
-        <input class="form-control" type="text" required value={createGenreMan} onChange={(e) => setCreateGenreMan(e.target.value)}/>
+        <input class="form-control" type="text" required value={createNameGenre} onChange={(e) => setCreateGenre(e.target.value)}/>
       </form>
     </main>
   );

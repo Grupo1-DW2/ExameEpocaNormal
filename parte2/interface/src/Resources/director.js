@@ -2,26 +2,26 @@ import React from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
-const owners = "http://localhost:3000/Owners";
-const owner = "http://localhost:3000/Owner";
+const directors = "http://localhost:3000/Directors";
+const director = "http://localhost:3000/Director";
 
 const request = axios.create({
     withCredentials: true,
   });
 
-export default function Owners() {
+export default function Directors() {
     const [regs, setPosts] = React.useState(null);
     const [, setState] = React.useState(null);
   
     React.useEffect(() => {
-      request.get(owners).then((response) => {
+      request.get(directors).then((response) => {
         setPosts(response.data);
       });
     }, []);
   
-    function deleteOwner(event) {
+    function deleteDirector(event) {
       const deletedId = event.currentTarget.dataset.index;
-      request.delete(`${owner}/${deletedId}`).then(() => {
+      request.delete(`${director}/${deletedId}`).then(() => {
         regs.splice(
           regs.findIndex((el) => String(el.id) === String(deletedId)),
           1
@@ -34,15 +34,13 @@ export default function Owners() {
     if (!regs) return null;
     return (
       <div>
-        <Link to={`/owner/create`}><button style={{"margin-bottom": "20px"}} class="btn btn-success">Create Owner</button></Link>
+        <Link to={`/director/create`}><button style={{"margin-bottom": "20px"}} class="btn btn-success">Create Director</button></Link>
         <table style={{textAlign: "center"}} class="table table-striped table-dark" border="solid 1px">
           <thead>
             <tr>
               <th width="4%">#</th>
-              <th width="25%">Name</th>
-              <th width="25%">Age</th>
-              <th width="25%">Sex</th>
-              <th width="10%" colspan="2"></th>
+              <th width="20%">Name</th>
+              <th colspan="2" width="10%"></th>
             </tr>
           </thead>
           <tbody>
@@ -50,13 +48,11 @@ export default function Owners() {
               <tr key={i}>
                 <td>{reg.id}</td>
                 <td>{reg.name}</td>
-                <td>{reg.age}</td>
-                <td>{reg.sex}</td>
                 <td>
-                  <Link to={`/owner/${reg.id}`}><button class="btn btn-primary">Update</button></Link>
+                  <Link to={`/director/${reg.id}`}><button class="btn btn-primary">Update</button></Link>
                 </td>
                 <td>
-                  <button class="btn btn-danger" data-index={reg.id} onClick={deleteOwner}>
+                  <button class="btn btn-danger" data-index={reg.id} onClick={deleteDirector}>
                     Delete
                   </button>
                 </td>
