@@ -260,6 +260,7 @@ const App = () => {
     try {
       const response = await api.post("/Movies", createMovie);
       const allMovies = [...movies, response.data];
+      setMovies(allMovies);
       setCreateLanguage("");
       setCreateOriginal_Title("");
       setCreateRelease_Date("");
