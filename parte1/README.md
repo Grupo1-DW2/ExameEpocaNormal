@@ -9,10 +9,10 @@ Este trabalho tem como âmbito o desenho e criação de um serviço web que rela
 ## Organização do repositório 
 
 _O repositório está organizado da seguite maneira:_
-* **Código Fonte API** está na pasta [API](src/).
-* **Documentação** está na pasta [doc_P1](src/).
-* [Documento MYSQL](src/api/openapi.yaml) para criação da Base de Dados.
-* [Documento Docker-compose](Queries_base_de_dados.sql)para puxar as imagens dos repositórios DockerHub e montar a aplicação.
+* **Código Fonte API** está na pasta [API](api/).
+* **Documentação** está na pasta [doc_P1](doc_P1/).
+* [Documento MYSQL](database.sql) para criação da Base de Dados.
+* [Documento Docker-compose](docker-compose.yml)para puxar as imagens dos repositórios DockerHub e montar a aplicação.
 
 
 ## Galeria 
