@@ -26,7 +26,7 @@ services:
       - movies-network
   react:
     depends_on:
-        - app
+      - app
     container_name: movies-react
     image: inf21dw2g01/parte2:react
     environment:

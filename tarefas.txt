@@ -1,5 +1,0 @@
-
-M2
-  - Tratar dos Movies
-  - Tratar do Genres
-  - Tratar do Docker
