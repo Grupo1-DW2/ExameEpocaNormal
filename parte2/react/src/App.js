@@ -30,10 +30,14 @@ const api = request.create({
   baseURL: "http://localhost:3000/",
 });
 
+
+
 const App = () => {
+
+  const navigate = useNavigate();
   // ----------------------------------------------------- HandleEditActor -----------------------------------------------------
   //Definição de estados para props para a Ediçao do actor
-  const navigate = useNavigate();
+
   const [editName, setEditName] = useState("");
 
   const [actors, setPosts] = React.useState([]);
@@ -155,12 +159,13 @@ const App = () => {
   const handleEditGenre = async (id) => {
     const updatedGenre = {
       id,
-      name: editNameGenre,
+      genre: editNameGenre,
     };
     try {
       const response = await api.put(`Genre/${id}`, updatedGenre);
-      setGenres(
-        genres.map((genre) => (genre.id === id ? { ...response.data } : genre))
+      setPosts(
+        genres.map((genre) => 
+        (genre.id === id ? { ...response.data } : genre))
       );
       setEditNameGenre("");
       navigate("/Genres");
@@ -170,7 +175,7 @@ const App = () => {
   };
   // ----------------------------------------------------- Fim HandleEditGenre -----------------------------------------------------
   // ----------------------------------------------------- HandleCreateGenre -----------------------------------------------------
-  const [createNameGenre, setCreateGenre] = useState("");
+  const [createNameGenre, setCreateNameGenre] = useState("");
 
   const handleCreateGenre = async (e) => {
     e.preventDefault();
@@ -181,7 +186,7 @@ const App = () => {
       const response = await api.post("/Genres", createGenre);
       const allGenres = [...genres, response.data];
       setGenres(allGenres);
-      setCreateGenre("");
+      setCreateNameGenre("");
       navigate("/Genres");
     } catch (err) {
       console.log(`Error: ${err.message}`);
@@ -211,11 +216,11 @@ const App = () => {
     const updatedMovie = {
       id,
       language: editLanguage,
-      Original_Title: editOriginal_Title,
-      Release_Date: editRelease_Date,
-      Runtime: editRuntime,
-      Actor_id: editActor_id,
-      Director_id: editDirector_id,
+      original_title: editOriginal_Title,
+      release_date: editRelease_Date,
+      runtime: editRuntime,
+      actor_id: editActor_id,
+      director_id: editDirector_id,
     };
     try {
       const response = await api.put(`Movie/${id}`, updatedMovie);
@@ -248,11 +253,11 @@ const App = () => {
     e.preventDefault();
     const createMovie = {
       language: createLanguage,
-      Original_Title: createOriginal_Title,
-      Release_Date: createRelease_Date,
-      Runtime: createRuntime,
-      Actor_id: createActor_id,
-      Director_id: createDirector_id,
+      original_title: createOriginal_Title,
+      release_date: createRelease_Date,
+      runtime: createRuntime,
+      actor_id: createActor_id,
+      director_id: createDirector_id,
     };
     try {
       const response = await api.post("/Movies", createMovie);
@@ -346,6 +351,7 @@ const App = () => {
               genres={genres}
               handleCreateGenre={handleCreateGenre}
               createNameGenre={createNameGenre}
+              setCreateNameGenre={setCreateNameGenre}
             />
           }
         ></Route>
