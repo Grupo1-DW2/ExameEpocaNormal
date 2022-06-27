@@ -401,7 +401,7 @@ const Navigation = () => (
   <nav>
     <ul>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/"><i class="bi bi-house-door-fill"></i></NavLink>
       </li>
       <li>
         <NavLink to="/directors">Directors</NavLink>
@@ -415,8 +415,19 @@ const Navigation = () => (
       <li>
         <NavLink to="/genres">Genres</NavLink>
       </li>
-      <li>
-        <a href="http://localhost:3000/auth/github"><i class="bi bi-github"></i> Entrar com o GitHub</a>
+      <li>     
+      </li><li>      
+      </li><li>      
+      </li><li>     
+      </li><li>
+      </li><li>
+      </li><li>
+      </li><li>
+      </li><li>
+      </li><li>
+      </li>
+      <li text-align="right">
+        <a href="http://localhost:3000/auth/github"><i class="bi bi-arrow-return-left"></i>  Voltar à página Protegida</a>
       </li>
     </ul>
   </nav>

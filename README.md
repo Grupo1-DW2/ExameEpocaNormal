@@ -23,7 +23,7 @@ _As tecnologias usadas neste projeto, foram as seguites:_
 * OpenAPI
 
 
-### Frameworks e Livrarias 
+### Frameworks e Libraries 
 
 * Docker
 * NodeJS
