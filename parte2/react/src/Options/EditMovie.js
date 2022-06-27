@@ -34,7 +34,7 @@ const EditMovie = ({
                     <input class="form-control" type="text" min="18" max="150" required value={editOriginal_Title} onChange={(e) => setEditOriginal_Title(e.target.value)} />
 
                     <label class="form-label">Release_Date:</label>
-                    <input class="form-control form-control" type="date" required value={editRelease_Date} onChange={(e) => setEditRelease_Date(e.target.value)}/>
+                    <input class="form-control form-control" required value={editRelease_Date} onChange={(e) => setEditRelease_Date(e.target.value)}/>
 
                     <label class="form-label">Runtime:</label>
                     <input class="form-control form-control" type="number" required value={editRuntime} onChange={(e) => setEditRuntime(e.target.value)}/>
