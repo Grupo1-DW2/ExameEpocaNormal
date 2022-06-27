@@ -163,7 +163,7 @@ const App = () => {
     };
     try {
       const response = await api.put(`Genre/${id}`, updatedGenre);
-      setGenres(
+      setPosts(
         genres.map((genre) => 
         (genre.id === id ? { ...response.data } : genre))
       );
@@ -351,6 +351,7 @@ const App = () => {
               genres={genres}
               handleCreateGenre={handleCreateGenre}
               createNameGenre={createNameGenre}
+              setCreateNameGenre={setCreateNameGenre}
             />
           }
         ></Route>
