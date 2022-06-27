@@ -170,7 +170,7 @@ const App = () => {
   };
   // ----------------------------------------------------- Fim HandleEditGenre -----------------------------------------------------
   // ----------------------------------------------------- HandleCreateGenre -----------------------------------------------------
-  const [createNameGenre, setCreateGenre] = useState("");
+  const [createNameGenre, setCreateNameGenre] = useState("");
 
   const handleCreateGenre = async (e) => {
     e.preventDefault();
@@ -181,7 +181,7 @@ const App = () => {
       const response = await api.post("/Genres", createGenre);
       const allGenres = [...genres, response.data];
       setGenres(allGenres);
-      setCreateGenre("");
+      setCreateNameGenre("");
       navigate("/Genres");
     } catch (err) {
       console.log(`Error: ${err.message}`);
