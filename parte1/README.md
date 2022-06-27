@@ -41,7 +41,7 @@ _As tecnologias usadas neste projeto, foram as seguites:_
 _Estão adicionados um documento por capítulo_
 
 ### Apresentação da API
-* Capítulo 1: [Apresentação do Projeto](doc_P1/c1.md)
+* Capítulo 1: [Apresentação da API](doc_P1/c1.md)
 ### Recursos
 * Capítulo 2: [Recursos Disponíveis](doc_P1/c2.md)
 ### Produto
@@ -50,7 +50,7 @@ _Estão adicionados um documento por capítulo_
 <br>
 
 ## Grupo _01_
-* Ana Filipa Azevedo [@AnaAzevedo](https://github.com/AnaAzevedo2) 
+* Ana Azevedo [@AnaAzevedo](https://github.com/AnaAzevedo2) 
 * Mariana Lopes [@MarianaLopes](https://github.com/marlope02) 
 * Mário Rodrigues [@MarioRodrigues](https://github.com/MarioRodrigues2304)
 * Rodrigo Moreira [@Rodrigo Moreira](https://github.com/rodmoreira41)
