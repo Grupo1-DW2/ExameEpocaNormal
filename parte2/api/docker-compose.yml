@@ -2,8 +2,8 @@ version: '3.7'
 
 services:
   mysql:
-    container_name: moviesP2-mysql
-    image: movies2-mysql2
+    container_name: movies-mysql
+    image: movies-mysql2
     build:
       context: .
       dockerfile: ./dockerfile.mysql
@@ -19,7 +19,7 @@ services:
   app:
     depends_on:
       - mysql
-    container_name: moviesP2-app
+    container_name: movies-app
     image: movies-app2
     build:
       context: .
@@ -28,17 +28,6 @@ services:
       NODE_ENV: production
     ports:
       - 3000:3000
-    networks:
-      - movies-network
-  react:
-    depends_on:
-      - app
-    container_name: movies-react
-    image: movies-react
-    environment:
-      NODE_ENV: production
-    ports:
-      - 3006:3006
     networks:
       - movies-network
 
