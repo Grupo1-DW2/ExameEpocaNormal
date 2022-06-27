@@ -17,9 +17,9 @@ _O repositório está organizado da seguite maneira:_
 
 ## Galeria 
 
-| ![recursos](doc/images/image2.png)           | ![Get](doc/images/image3.png)  |
+| ![1](doc_P1/1.png)           | ![2](doc_P1/2.png)  |
 | ---------------------------- | ----------- |
-| ![Put](doc/images/image4.png)                | 
+| ![3](doc_P1/3.png)           | ![4](doc_P1/4.png)  |
 
 
 ## Tecnologias 
