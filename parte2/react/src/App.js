@@ -426,7 +426,19 @@ const Navigation = () => (
 
 const Home = () => (
   <div className="home">
-    <h1>Movies Information</h1>
+    <h1>Interface Desenvolvida em React para a API Movies</h1>
+    <div>
+      Ana Azevedo A039600
+    </div>
+    <div>
+     Mariana Pereira A038553
+    </div>
+    <div>
+     Mário Rofrigues A039139
+    </div>
+    <div>
+      Rodrigo Moreira A039291
+    </div>
   </div>
 );
 
