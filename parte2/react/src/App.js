@@ -30,10 +30,14 @@ const api = request.create({
   baseURL: "http://localhost:3000/",
 });
 
+
+
 const App = () => {
+
+  const navigate = useNavigate();
   // ----------------------------------------------------- HandleEditActor -----------------------------------------------------
   //Definição de estados para props para a Ediçao do actor
-  const navigate = useNavigate();
+
   const [editName, setEditName] = useState("");
 
   const [actors, setPosts] = React.useState([]);
@@ -160,7 +164,8 @@ const App = () => {
     try {
       const response = await api.put(`Genre/${id}`, updatedGenre);
       setGenres(
-        genres.map((genre) => (genre.id === id ? { ...response.data } : genre))
+        genres.map((genre) => 
+        (genre.id === id ? { ...response.data } : genre))
       );
       setEditNameGenre("");
       navigate("/Genres");
