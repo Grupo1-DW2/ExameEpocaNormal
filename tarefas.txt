@@ -1,5 +1,0 @@
-
-M2:
-  - mudar o index.js
-  - adicionar pasta interface
-  - mudar o docker-compose.yaml
