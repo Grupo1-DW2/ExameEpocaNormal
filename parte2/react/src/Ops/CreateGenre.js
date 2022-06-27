@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CreateGenre = ({
-    handleCreateGenre, createNameGenre, setCreateGenre
+    genres, handleCreateGenre, createNameGenre, setCreateGenre
 }) => {
   return (
     <main>
