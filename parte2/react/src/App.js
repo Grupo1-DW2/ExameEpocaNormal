@@ -7,20 +7,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import Actor from "./Resources/Actor";
-import EditActor from "./Ops/EditActor";
-import CreateActor from "./Ops/CreateActor";
+import EditActor from "./Options/EditActor";
+import CreateActor from "./Options/CreateActor";
 
 import Director from "./Resources/Director";
-import EditDirector from "./Ops/EditDirector";
-import CreateDirector from "./Ops/CreateDirector";
+import EditDirector from "./Options/EditDirector";
+import CreateDirector from "./Options/CreateDirector";
 
 import Movie from "./Resources/Movie";
-import EditMovie from "./Ops/EditMovie";
-import CreateMovie from "./Ops/CreateMovie";
+import EditMovie from "./Options/EditMovie";
+import CreateMovie from "./Options/CreateMovie";
 
 import Genre from "./Resources/Genre";
-import EditGenre from "./Ops/EditGenre";
-import CreateGenre from "./Ops/CreateGenre";
+import EditGenre from "./Options/EditGenre";
+import CreateGenre from "./Options/CreateGenre";
 
 const request = axios.create({
   withCredentials: true,
@@ -427,7 +427,7 @@ const Navigation = () => (
       </li><li>
       </li>
       <li text-align="right">
-        <a href="http://localhost:3000/auth/github"><i class="bi bi-arrow-return-left"></i>  Voltar à página Protegida</a>
+        <a href="http://localhost:3000/"><i class="bi bi-arrow-return-left"></i>  Voltar à Página Inicial</a>
       </li>
     </ul>
   </nav>
@@ -439,7 +439,7 @@ const Home = () => (
   <div className="home">
     <h1>Interface Desenvolvida em React para a API Movies</h1>
     <div>
-      Ana Azevedo A039600
+     Ana Azevedo A039600
     </div>
     <div>
      Mariana Pereira A038553
@@ -448,7 +448,7 @@ const Home = () => (
      Mário Rofrigues A039139
     </div>
     <div>
-      Rodrigo Moreira A039291
+     Rodrigo Moreira A039291
     </div>
   </div>
 );
