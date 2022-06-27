@@ -14,11 +14,11 @@ const EditMovie = ({
     useEffect(() => {
         if (movie) {
             setEditLanguage(movie.language);
-            setEditOriginal_Title(movie.Original_Title);
-            setEditRelease_Date(movie.Release_Date);
-            setEditRuntime(movie.Runtime);
-            setEditActor_id(movie.Actor_id);
-            setEditDirector_id(movie.Director_id);
+            setEditOriginal_Title(movie.original_title);
+            setEditRelease_Date(movie.release_date);
+            setEditRuntime(movie.runtime);
+            setEditActor_id(movie.actor_id);
+            setEditDirector_id(movie.director_id);
         }
     }, [movie, setEditLanguage, setEditOriginal_Title, setEditRelease_Date, setEditRuntime, setEditActor_id, setEditDirector_id])
 
@@ -31,19 +31,19 @@ const EditMovie = ({
                     <input class="form-control" type="text" required value={editLanguage} onChange={(e) => setEditLanguage(e.target.value)} />
 
                     <label class="form-label">Original_Title:</label>
-                    <input class="form-control" type="number" min="18" max="150" required value={editOriginal_Title} onChange={(e) => setEditOriginal_Title(e.target.value)} />
+                    <input class="form-control" type="text" min="18" max="150" required value={editOriginal_Title} onChange={(e) => setEditOriginal_Title(e.target.value)} />
 
                     <label class="form-label">Release_Date:</label>
-                    <imput class="form-control form-control" required value={editRelease_Date} onChange={(e) => setEditRelease_Date(e.target.value)}/>
+                    <input class="form-control form-control" type="date" required value={editRelease_Date} onChange={(e) => setEditRelease_Date(e.target.value)}/>
 
                     <label class="form-label">Runtime:</label>
-                    <imput class="form-control form-control" required value={editRuntime} onChange={(e) => setEditRuntime(e.target.value)}/>
+                    <input class="form-control form-control" type="number" required value={editRuntime} onChange={(e) => setEditRuntime(e.target.value)}/>
 
                     <label class="form-label">Actor_id:</label>
-                    <imput class="form-control form-control" required value={editActor_id} onChange={(e) => setEditActor_id(e.target.value)}/>
+                    <input class="form-control form-control" type="number" required value={editActor_id} onChange={(e) => setEditActor_id(e.target.value)}/>
 
                     <label class="form-label">Director_id:</label>
-                    <imput class="form-control form-control" required value={editDirector_id} onChange={(e) => setEditDirector_id(e.target.value)}/>
+                    <input class="form-control form-control" type="number" required value={editDirector_id} onChange={(e) => setEditDirector_id(e.target.value)}/>
 
 
                     <br/>
