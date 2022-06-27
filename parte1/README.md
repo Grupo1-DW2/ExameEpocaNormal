@@ -43,9 +43,9 @@ _Estão adicionados um documento por capítulo_
 ### Apresentação da API
 * Capítulo 1: [Apresentação do Projeto](doc_P1/c1.md)
 ### Recursos
-* Capítulo 2: [Recursos](doc_P1/c2.md)
+* Capítulo 2: [Recursos Disponíveis](doc_P1/c2.md)
 ### Produto
-* Capítulo 3: [Produto](doc_P1/c3.md)
+* Capítulo 3: [Resultado Final](doc_P1/c3.md)
 
 <br>
 
