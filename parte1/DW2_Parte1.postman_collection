@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "450e6a6b-d33c-403f-a021-3a6fc041d019",
 		"name": "DW2 EXAME",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17624381"
 	},
 	"item": [
 		{
@@ -48,28 +49,73 @@
 					"response": []
 				},
 				{
-					"name": "Actors{id}",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/Actor/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"Actor",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Actors",
 					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "bearer",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "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",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "user%3Aemail",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://github.com/login/oauth/access_token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://github.com/login/oauth/authorize",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:3000/auth/github/callback",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "4a7c66e503cfb001a2c296f56f6ee03cf73d490a",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "671354db4ddf8c90fbfa",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -85,6 +131,26 @@
 							"port": "3000",
 							"path": [
 								"Actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actors{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/Actor/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"Actor",
+								"1"
 							]
 						}
 					},
@@ -195,7 +261,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Director\""
+							"raw": "{\r\n  \"name\": \"Director\"\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/Directors",
@@ -590,6 +656,108 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "bearer",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "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",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "user%3Aemail",
+				"type": "string"
+			},
+			{
+				"key": "state",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "Token",
+				"type": "string"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "http://localhost:3000/auth/github/callback",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "authorization_code",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "4a7c66e503cfb001a2c296f56f6ee03cf73d490a",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "671354db4ddf8c90fbfa",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "https://github.com/login/oauth/authorize",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://github.com/login/oauth/access_token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
 		}
 	]
 }
