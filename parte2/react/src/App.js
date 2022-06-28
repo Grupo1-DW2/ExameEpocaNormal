@@ -407,6 +407,9 @@ const Navigation = () => (
   <nav>
     <ul>
       <li>
+        <a href="http://localhost:3000/"><i class="bi bi-arrow-return-left"></i></a>
+      </li>
+      <li>
         <NavLink to="/"><i class="bi bi-house-door-fill"></i></NavLink>
       </li>
       <li>
@@ -420,20 +423,6 @@ const Navigation = () => (
       </li>
       <li>
         <NavLink to="/genres">Genres</NavLink>
-      </li>
-      <li>     
-      </li><li>      
-      </li><li>      
-      </li><li>     
-      </li><li>
-      </li><li>
-      </li><li>
-      </li><li>
-      </li><li>
-      </li><li>
-      </li>
-      <li text-align="right">
-        <a href="http://localhost:3000/"><i class="bi bi-arrow-return-left"></i>  Voltar à Página Inicial</a>
       </li>
     </ul>
   </nav>
